@@ -1,17 +1,41 @@
-### Drop7 clone
+## design
+### classes
+    1. main
+    2. ball class
+        * getters:
+            * get color
+            * get color
+            * get ballnum
+            * get pointvalue
+        * setters:
+            *
+    3. compare class
+        * getters:
+        * setters:
+        * other:
+            * printBoard
+            * dropBall
+            * popBalls
+    4. GUI
 
-ball class
-#### classes
-    - Gui class
-    - compare class
-    - fileIO class
-    - ball class
+    5. fileIO
+
     
-board gui
-    - 7 buttons for each collumns
-compare class
-    runs calculations to pop balls and to change level
 
-fileIOclass reads in colors from a file like bash.rc
+### About
 
+    main gets input from the user and passes it to the compare class. compare class when init loads the array with the first set of balls.
+    balls to drop are printed to the terminal at the beginning of every turn after the screen is redrawn.
+    After compare gets input from the user and passes it to the dropBall method popBalls method is ran to check the array for balls to pop. If any balls are popped dropBalls and popBalls are ran again until there are no more balls to pop/drop. Then the turn starts over.
+player loses if the array fills a single position in the 0'th of the first dimension of the array which is the top of the screen
+
+
+
+## TODO:
+    1. fix print so it has a lign above the seventh position to show that if the nums get above they've lost.
+    2. fix the compare init so it fills the array with some balls and the rest will be null.
+    3. code dropBalls
+    4. code popBalls
+    5. implement the shell system in the ball class
+~
 
