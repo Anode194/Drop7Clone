@@ -6,6 +6,7 @@
             * private color
             * private int ballnum
             * private pointvalue
+            * private isWhite bool
         * getters:
             * get color()
             * get ballnum()
@@ -21,6 +22,7 @@
             * levelUp()
             * popBalls()
             * shiftBalls()
+            * crackWhileBall()
     4. GUI
         * 49 Jbuttons
         * score jtextfield
