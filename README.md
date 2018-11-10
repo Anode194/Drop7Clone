@@ -22,8 +22,14 @@
     4. GUI
 
     5. fileIO
-        *  
-    
+    * Fields
+        * private File colorFile
+        * private Color[9] 
+        * private int pointTotal
+    * Methods
+        * getColor Array
+        * writePointTotal
+
 
 ### About
 
