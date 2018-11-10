@@ -14,22 +14,24 @@
             *
     3. compare class
         * getters:
+            *  getBallColor
         * setters:
+            * set newBall
         * other:
-            * printBoard
-            * dropBall
             * popBalls
     4. GUI
-
-    5. fileIO
-    * Fields
-        * private File colorFile
-        * private Color[9] 
-        * private int pointTotal
+        * 49 Jbuttons
+        * score jtextfield
+        5. fileIO
+        * Fields
+            * private File colorFile
+            * private Color[9] 
+            * private int pointTotal
     * Methods
-        * getColor Array
-        * writePointTotal
-
+            * getColor Array
+            * writePointTotal
+            * get fGroundColor
+            * get bGroundColor
 
 ### About
 
