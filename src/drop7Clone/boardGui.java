@@ -1,4 +1,6 @@
+package drop7Clone;
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -48,7 +50,7 @@ public class boardGui extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();							//TODO rename all these variables so I know where they are on the form.
 		panel.setBackground(Color.DARK_GRAY);
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		contentPane.add(panel, BorderLayout.CENTER);

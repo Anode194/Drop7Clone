@@ -44,6 +44,7 @@
     Every 14 balls dropped a row of 7 white balls appears on the bottom of the board, pushing the stack higher. You lose if a ball gets pushed above the top of the screen. The game records your score which is calculated by adding up all the balls you popped. when the game is over it writes your score to a file. The opening screen appears some simple statistics like average score, highscore etc. You can use a custom file for the ball colors. If you don't it will use a defaut profile that comes with the game.
     Compare class does the heavy lifting for checking whether a ball in the array needs to be popped or needs to move position.
 
+TODO: rename variables in boardGUI
 
 
 ### Feature Ideas
