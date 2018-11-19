@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class inputOutput
 	{
+		private int score = 0;
 		private String[] colorCodes = new String[16];
 		private Color[] colors = new Color[16];
 		private File colorFile;
+		private File ScoreFile;
 		public inputOutput(File f) throws FileNotFoundException
 		{
 			colorFile = f;
@@ -26,6 +28,10 @@ public class inputOutput
 		public String[] getColorCode()
 		{
 			return colorCodes;
+		}
+		public void setScore(int currentScore)
+		{
+			score += currentScore;
 		}
 		
 	}
