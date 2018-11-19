@@ -60,6 +60,34 @@ public BallClass()
 	{
 		return ballNum;
 	}
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ballNum;
+		result = prime * result + (isCracked ? 1231 : 1237);
+		result = prime * result + (isWhite ? 1231 : 1237);
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BallClass other = (BallClass) obj;
+		if (ballNum != other.ballNum)
+			return false;
+		if (isCracked != other.isCracked)
+			return false;
+		if (isWhite != other.isWhite)
+			return false;
+		return true;
+	}
 	public Color getColor()
 	{
 		return color;

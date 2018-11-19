@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -89,23 +92,57 @@ public class boardGui extends JFrame
 		lblBalls.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblBalls.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblBalls);
-		JButton[][] btnArray = new JButton[7][7];
-
+		BallButton[][] btnArray = new BallButton[7][7];
 		Compare comp = new Compare();
+
 		for (int x = 6; x >= 0; x--)
 			{
 				for (int y = 6; y >= 0; y--)
 					{
-						btnArray[x][y] = new JButton();
+						btnArray[x][y] = new BallButton((x),(y));
 						btnArray[x][y].setBorder(new LineBorder(new Color(0, 0, 0), 2));
 						btnArray[x][y].setBackground(Color.DARK_GRAY);
 						btnArray[x][y].setForeground(Color.RED);
 						btnArray[x][y].setOpaque(true);
-						btnArray[x][y].setText(String.format("%d", x));
 						panel.add(btnArray[x][y]);
-						
-
+						btnArray[x][y].addActionListener(new ActionListener()
+							{
+								@Override
+								public void actionPerformed(ActionEvent e)
+								{
+									int yCoord = 0; 
+									int xCoord = 0; 
+								for(int xCo =0; xCo<7; xCo++)
+									{
+										for(int yCo = 0; yCo <7; yCo++) 
+											{
+												if(btnArray[xCo][yCo].equals(e.getSource()))
+													{
+														yCoord = yCo;
+														xCoord = xCo;
+													}
+											}
+									}
+									//comp.checkxCoord not implemented
+									//comp.checkyCoord
+									btnArray[xCoord][yCoord].setText(""+comp.getBallPos(xCoord, yCoord));
+							}
+							});
+						for(BallButton[] arr : btnArray)
+							{
+								for(BallButton btn : arr)
+									{
+										if(!comp.isNull(btn.getxCoord(), btn.getyCoord()))
+											{
+												btn.setText(""+comp.getBallPos(btn.getxCoord(), btn.getyCoord()));
+											}
+									}
+							}
 					}
+			}
+		while(!comp.gameLost())
+			{
+				
 			}
 	}
 }
