@@ -5,7 +5,7 @@ import java.util.*;
 public class Compare
 {
 	private int columnNum;
-
+	BallClass nextBall;
 	//	List<List<BallClass>> ballArray = new ArrayList<List<BallClass>>(8); //2 dim arraylist of balls
 	BallClass[][] ballArray = new BallClass[7][8];
 	public Compare()
@@ -19,9 +19,10 @@ public class Compare
 			}
 			for(int x = 0; x < 7; x++)
 			{
-				ballArray[0][x] = new BallClass();
-				ballArray[1][x] = new BallClass();
+				ballArray[x][6] = new BallClass();
+				ballArray[x][7] = new BallClass();
 			}
+			nextBall = new BallClass();
 	}
 	public boolean isNull(int x, int y)
 	{
@@ -31,21 +32,22 @@ public class Compare
 	
 	public boolean gameLost()					//this determines if the game is still going.
 	{
-		if((ballArray[7][0] != null)||
-				(ballArray[7][1] != null)||
-				(ballArray[7][2]!=null)||
-				(ballArray[7][3]!=null)||
-				(ballArray[7][4]!= null)||
-				(ballArray[7][5]!= null)||
-				(ballArray[7][6] != null)) 
-			{return false;} else 
+		if((ballArray[0][0] != null)||
+				(ballArray[1][0] != null)||
+				(ballArray[2][0]!=null)||
+				(ballArray[3][0]!=null)||
+				(ballArray[4][0]!= null)||
+				(ballArray[5][0]!= null)||
+				(ballArray[6][0] != null)) 
+			{return true;} else 
 				{
-					return true;
+					return false;
 				}
 	}
-	public void setNextBallPos(BallClass b, int x, int y) //this sets the next balls position on the stack
+	public void setNextBallPos(int x, int y) //this sets the next balls position on the stack
 		{
-			ballArray[x][y] = b;
+			ballArray[x][y] = nextBall;
+			nextBall = new BallClass();
 		}
 	public BallClass getNextBall()
 	{
@@ -58,10 +60,29 @@ public class Compare
 	}
 	public Color getBallColor(int xPos, int yPos)
 	{
-		return null;
+		return null; //TODO implement colorSystem
 	}
-	public int getBallPos(int x , int y) //returns the number of the ball at the position
+	public int getBallnum(int x , int y) //returns the number of the ball at the position
 	{
 		return ballArray[x][y].getBallNum();
 	}
+	public int getNextBallNum()
+	{
+		return nextBall.getBallNum();
+	}
+
+	public void CheckXCoord(int xColumn)
+	{
+		
+	}
+	public void CheckYCoord(int yColumn)
+	{
+		
+	}
+	public int gameTurnBegin(BallClass nextBall)
+	{
+		nextBall = new BallClass();
+		return 0;
+	}
 }
+		

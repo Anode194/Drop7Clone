@@ -26,7 +26,7 @@ public class boardGui extends JFrame
 {
 
 	private JPanel contentPane;
-
+	private BallClass nextBall;
 	/**
 	 * Launch the application.
 	 */
@@ -73,31 +73,35 @@ public class boardGui extends JFrame
 		panel_1.setForeground(new Color(128, 0, 0));
 		contentPane.add(panel_1, BorderLayout.NORTH);
 
-		JLabel lblNewLabel = new JLabel("Score Board : 0000000 ");
+		JLabel lblNewLabel = new JLabel("Score Board:0000000");
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBackground(new Color(250, 235, 215));
 		lblNewLabel.setForeground(new Color(128, 0, 0));
 		lblNewLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("  Level : 001  ");
+		JLabel lblNewLabel_1 = new JLabel("Level:001");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(new Color(0, 0, 139));
 		lblNewLabel_1.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblNewLabel_1);
 
-		JLabel lblBalls = new JLabel("  Balls : 14  ");
+		JLabel lblBalls = new JLabel("Balls:14");
 		lblBalls.setForeground(new Color(0, 0, 128));
 		lblBalls.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblBalls.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblBalls);
-		BallButton[][] btnArray = new BallButton[7][7];
+		
 		Compare comp = new Compare();
 
-		for (int x = 6; x >= 0; x--)
+		JLabel lblNewLabel_2 = new JLabel(String.format("next Ball: %d",comp.getNextBallNum()));
+		panel_1.add(lblNewLabel_2);
+		BallButton[][] btnArray = new BallButton[7][7];
+
+		for (int x = 0; x < 7; x++)
 			{
-				for (int y = 6; y >= 0; y--)
+				for (int y = 0; y < 7; y++)
 					{
 						btnArray[x][y] = new BallButton((x),(y));
 						btnArray[x][y].setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -105,11 +109,13 @@ public class boardGui extends JFrame
 						btnArray[x][y].setForeground(Color.RED);
 						btnArray[x][y].setOpaque(true);
 						panel.add(btnArray[x][y]);
+						System.out.println("shit");
 						btnArray[x][y].addActionListener(new ActionListener()
 							{
 								@Override
 								public void actionPerformed(ActionEvent e)
 								{
+									System.out.println("fuck");
 									int yCoord = 0; 
 									int xCoord = 0; 
 								for(int xCo =0; xCo<7; xCo++)
@@ -123,26 +129,28 @@ public class boardGui extends JFrame
 													}
 											}
 									}
-									//comp.checkxCoord not implemented
-									//comp.checkyCoord
-									btnArray[xCoord][yCoord].setText(""+comp.getBallPos(xCoord, yCoord));
+									System.out.println("" + xCoord + " " + yCoord);
+									if(btnArray[xCoord][yCoord].getHasNumber() == false)
+										{
+											System.out.println("bar");
+											comp.setNextBallPos(xCoord, yCoord);
+											btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord)); //this line breaks when it runs
+											//comp.checkxCoord not implemented
+											//comp.checkyCoord
+										}
 							}
 							});
-						for(BallButton[] arr : btnArray)
-							{
-								for(BallButton btn : arr)
-									{
-										if(!comp.isNull(btn.getxCoord(), btn.getyCoord()))
-											{
-												btn.setText(""+comp.getBallPos(btn.getxCoord(), btn.getyCoord()));
-											}
-									}
-							}
 					}
 			}
-		while(!comp.gameLost())
-			{
-				
-			}
+						for(int q = 0; q < 7; q++)
+							{
+								btnArray[6][q].setText(""+comp.getBallnum(q, 7));
+								btnArray[6][q].setHasNumber(true);
+							}
+						for(int q = 0; q < 7; q++)
+							{
+								btnArray[5][q].setText(""+comp.getBallnum(q, 6));
+								btnArray[5][q].setHasNumber(true);
+							}
 	}
 }
