@@ -95,8 +95,8 @@ public class boardGui extends JFrame
 		
 		Compare comp = new Compare();
 
-		JLabel lblNewLabel_2 = new JLabel(String.format("next Ball: %d",comp.getNextBallNum()));
-		panel_1.add(lblNewLabel_2);
+		JLabel nextNumLbl = new JLabel(String.format("next Ball: %d",comp.getNextBallNum()));
+		panel_1.add(nextNumLbl);
 		BallButton[][] btnArray = new BallButton[7][7];
 
 		for (int x = 0; x < 7; x++)
@@ -109,13 +109,11 @@ public class boardGui extends JFrame
 						btnArray[x][y].setForeground(Color.RED);
 						btnArray[x][y].setOpaque(true);
 						panel.add(btnArray[x][y]);
-						System.out.println("shit");
 						btnArray[x][y].addActionListener(new ActionListener()
 							{
 								@Override
 								public void actionPerformed(ActionEvent e)
 								{
-									System.out.println("fuck");
 									int yCoord = 0; 
 									int xCoord = 0; 
 								for(int xCo =0; xCo<7; xCo++)
@@ -132,11 +130,11 @@ public class boardGui extends JFrame
 									System.out.println("" + xCoord + " " + yCoord);
 									if(btnArray[xCoord][yCoord].getHasNumber() == false)
 										{
-											System.out.println("bar");
 											comp.setNextBallPos(xCoord, yCoord);
 											btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord)); //this line breaks when it runs
 											//comp.checkxCoord not implemented
 											//comp.checkyCoord
+											nextNumLbl.setText(""+comp.getNextBallNum());
 										}
 							}
 							});
