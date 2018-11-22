@@ -7,7 +7,7 @@ public class Compare
 	private int columnNum;
 	BallClass nextBall;
 	//	List<List<BallClass>> ballArray = new ArrayList<List<BallClass>>(8); //2 dim arraylist of balls
-	BallClass[][] ballArray = new BallClass[7][8];
+	BallClass[][] ballArray = new BallClass[7][7];
 	public Compare()
 	{
 			for(BallClass[] b : ballArray)
@@ -20,7 +20,7 @@ public class Compare
 			for(int x = 0; x < 7; x++)
 			{
 				ballArray[x][6] = new BallClass();
-				ballArray[x][7] = new BallClass();
+				ballArray[x][5] = new BallClass();
 			}
 			nextBall = new BallClass();
 	}
@@ -46,7 +46,7 @@ public class Compare
 	}
 	public void setNextBallPos(int x, int y) //this sets the next balls position on the stack
 		{
-			ballArray[x][y] = nextBall;
+			ballArray[y][x] = nextBall;
 			nextBall = new BallClass();
 		}
 	public BallClass getNextBall()
@@ -71,9 +71,16 @@ public class Compare
 		return nextBall.getBallNum();
 	}
 
-	public void CheckXCoord(int xColumn)
+	public void CheckXCoord(int xColumn, int compareNum)
 	{
-		
+		System.out.println(xColumn+" ");
+		for(int x = 0; x < ballArray[xColumn].length;x++)
+			{
+				if(ballArray[xColumn][x].getBallNum() == compareNum)
+					{
+						ballArray[xColumn][x] = null;
+					}
+			}
 	}
 	public void CheckYCoord(int yColumn)
 	{
@@ -83,6 +90,12 @@ public class Compare
 	{
 		nextBall = new BallClass();
 		return 0;
+	}
+	public Boolean checkBalls(int x, int y) //checks the ballArray so we can redraw the buttons.
+	{
+		if(ballArray[x][y] != null)
+		return true;
+		else return false;
 	}
 }
 		

@@ -26,7 +26,8 @@ public class boardGui extends JFrame
 {
 
 	private JPanel contentPane;
-	private BallClass nextBall;
+	private BallButton[][] btnArray;
+
 	/**
 	 * Launch the application.
 	 */
@@ -37,13 +38,13 @@ public class boardGui extends JFrame
 				public void run()
 				{
 					try
-						{
-							boardGui frame = new boardGui();
-							frame.setVisible(true);
-						} catch (Exception e)
-						{
-							e.printStackTrace();
-						}
+					{
+						boardGui frame = new boardGui();
+						frame.setVisible(true);
+					} catch (Exception e)
+					{
+						e.printStackTrace();
+					}
 				}
 			});
 	}
@@ -92,63 +93,77 @@ public class boardGui extends JFrame
 		lblBalls.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblBalls.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblBalls);
-		
+
 		Compare comp = new Compare();
 
-		JLabel nextNumLbl = new JLabel(String.format("next Ball: %d",comp.getNextBallNum()));
+		JLabel nextNumLbl = new JLabel(String.format("next Ball: %d", comp.getNextBallNum()));
 		panel_1.add(nextNumLbl);
-		BallButton[][] btnArray = new BallButton[7][7];
+		btnArray = new BallButton[7][7];
 
 		for (int x = 0; x < 7; x++)
+		{
+			for (int y = 0; y < 7; y++)
 			{
-				for (int y = 0; y < 7; y++)
+				btnArray[x][y] = new BallButton((x), (y));
+				btnArray[x][y].setBorder(new LineBorder(new Color(0, 0, 0), 2));
+				btnArray[x][y].setBackground(Color.DARK_GRAY);
+				btnArray[x][y].setForeground(Color.RED);
+				btnArray[x][y].setOpaque(true);
+				panel.add(btnArray[x][y]);
+				btnArray[x][y].addActionListener(new ActionListener()
 					{
-						btnArray[x][y] = new BallButton((x),(y));
-						btnArray[x][y].setBorder(new LineBorder(new Color(0, 0, 0), 2));
-						btnArray[x][y].setBackground(Color.DARK_GRAY);
-						btnArray[x][y].setForeground(Color.RED);
-						btnArray[x][y].setOpaque(true);
-						panel.add(btnArray[x][y]);
-						btnArray[x][y].addActionListener(new ActionListener()
+						@Override
+						public void actionPerformed(ActionEvent e)
+						{
+							int yCoord = 0;
+							int xCoord = 0;
+							for (int xCo = 0; xCo < 7; xCo++)
 							{
-								@Override
-								public void actionPerformed(ActionEvent e)
+								for (int yCo = 0; yCo < 7; yCo++)
 								{
-									int yCoord = 0; 
-									int xCoord = 0; 
-								for(int xCo =0; xCo<7; xCo++)
+									if (btnArray[xCo][yCo].equals(e.getSource()))
 									{
-										for(int yCo = 0; yCo <7; yCo++) 
-											{
-												if(btnArray[xCo][yCo].equals(e.getSource()))
-													{
-														yCoord = yCo;
-														xCoord = xCo;
-													}
-											}
+										yCoord = yCo;
+										xCoord = xCo;
 									}
-									System.out.println("" + xCoord + " " + yCoord);
-									if(btnArray[xCoord][yCoord].getHasNumber() == false)
-										{
-											comp.setNextBallPos(xCoord, yCoord);
-											btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord)); //this line breaks when it runs
-											//comp.checkxCoord not implemented
-											//comp.checkyCoord
-											nextNumLbl.setText(""+comp.getNextBallNum());
-										}
+								}
 							}
-							});
-					}
+							if (btnArray[xCoord][yCoord].getHasNumber() == false)
+							{
+								comp.setNextBallPos(xCoord, yCoord);
+								btnArray[xCoord][yCoord].setText("" + comp.getNextBallNum());
+
+								 comp.CheckXCoord(xCoord, comp.getBallnum(xCoord, yCoord));
+								// comp.checkyCoord
+								nextNumLbl.setText("" + comp.getNextBallNum());
+								comp.getNextBall();
+
+							}
+							for (int y = 0; y < 7; y++)
+							{
+								for (int x = 0; x < 7; x++)
+								{
+									if (!comp.isNull(y, x))
+									{
+										btnArray[x][y].setText("" + comp.getBallnum(y, x));
+										btnArray[x][y].setHasNumber(true);
+									} else
+									{
+										btnArray[x][y].setText("");
+										btnArray[x][y].setHasNumber(false);
+									}
+								}
+							}
+						}
+					});
 			}
-						for(int q = 0; q < 7; q++)
-							{
-								btnArray[6][q].setText(""+comp.getBallnum(q, 7));
-								btnArray[6][q].setHasNumber(true);
-							}
-						for(int q = 0; q < 7; q++)
-							{
-								btnArray[5][q].setText(""+comp.getBallnum(q, 6));
-								btnArray[5][q].setHasNumber(true);
-							}
+		}
+		for (int q = 0; q < 7; q++)
+		{
+			btnArray[6][q].setText("" + comp.getBallnum(q, 6));
+			btnArray[5][q].setText("" + comp.getBallnum(q, 5));
+			btnArray[5][q].setHasNumber(true);
+			btnArray[6][q].setHasNumber(true);
+		}
 	}
 }
