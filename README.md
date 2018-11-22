@@ -53,4 +53,17 @@ TODO: rename variables in boardGUI
 
 
 ~
+### terminal commands
+pwd -  print working directly (this is for finding out where you are in the system.
+cd - Change Directory
+cd .. - go up one directory
+cd _ - go back to where I just was.
+ls - list files and directories
+ls -a show all the files even the hidden ones.
+open (name of file) - this will open files with a gui from the terminal like a muffuckin Gangsta.
+### git commands
+git commit (name of files or use . to  commit all the changes) -m"(write a message that says the work you did)"
+git pull - run this everytime you start working. or anytime I need you to see changes
+git push - this pushes the changes to git hub so I can have your work and it can be saved in the cloud!
+git status - tells you if you have commits that need to be pushed to git hub
 
