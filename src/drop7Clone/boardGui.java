@@ -133,7 +133,7 @@ public class boardGui extends JFrame
 								comp.setNextBallPos(xCoord, yCoord);
 								btnArray[xCoord][yCoord].setText("" + comp.getNextBallNum());
 
-								 comp.CheckXCoord(xCoord, comp.getBallnum(xCoord, yCoord));
+								// comp.CheckXCoord(xCoord, comp.getBallnum(xCoord, yCoord));
 								// comp.checkyCoord
 								nextNumLbl.setText("" + comp.getNextBallNum());
 								comp.getNextBall();
