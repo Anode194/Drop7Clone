@@ -21,9 +21,9 @@ public class inputOutput
 				}
 		}
 		
-		public Color[] getColorArray()
+		public Color getColorArray(int x)
 		{
-			return colors;
+			return colors[x];
 		}
 		public String[] getColorCode()
 		{
