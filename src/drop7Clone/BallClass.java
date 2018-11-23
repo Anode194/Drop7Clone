@@ -14,9 +14,9 @@ private boolean isWhite;
 private boolean isCracked;
 private Class InputOutput;
 {
-	File f = new File("/Users/davidmendez/code/Eclipse /workspace/Drop7Clone/src/drop7Clone");
+	
 	try {
-		inputOutput io = new inputOutput(f);
+		inputOutput io = new inputOutput();
 	} catch (FileNotFoundException e) {
 		
 		e.printStackTrace();
