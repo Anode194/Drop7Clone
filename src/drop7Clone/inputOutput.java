@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.io.*;
 import java.util.Scanner;
 
+import javax.swing.JLabel;
+
 public class inputOutput
 	{
 		private int score = 0;
@@ -12,6 +14,9 @@ public class inputOutput
 		private File ScoreFile;
 		public inputOutput(File f) throws FileNotFoundException
 		{
+	
+			
+			File q = new File(colors.txt);
 			colorFile = f;
 			Scanner colorSc = new Scanner(colorFile);
 			for(int x = 0; x<16; x++)
