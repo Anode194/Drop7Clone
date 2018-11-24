@@ -71,9 +71,15 @@ public class Compare
 		return nextBall.getBallNum();
 	}
 
-	public void popBalls(int xColumn)
+	public void popBalls(int xColumn, int compare)
 	{
-		
+		for(BallClass b : ballArray[xColumn])
+		{
+			if(b.getBallNum() == compare)
+			{
+				b = null;
+			}
+		}
 	}
 	public int gameTurnBegin(BallClass nextBall)
 	{
@@ -85,6 +91,24 @@ public class Compare
 		if(ballArray[x][y] != null)
 		return true;
 		else return false;
+	}
+	public void debug()
+	{
+		for(BallClass[] bc : ballArray)
+		{
+		for(BallClass b : bc)
+		{
+			if(b == null) 
+			{
+			System.out.print(" 0");
+			} else 
+			{
+				System.out.print(" 1");
+			}
+			
+		}
+		System.out.println(" ");
+		}
 	}
 }
 		
