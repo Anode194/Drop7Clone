@@ -4,17 +4,17 @@ import java.awt.Color;
 import java.util.*;
 public class Compare
 {
-	private int columnNum;
+	BallClass[][] ballArray;
 	BallClass nextBall;
 	//	List<List<BallClass>> ballArray = new ArrayList<List<BallClass>>(8); //2 dim arraylist of balls
-	BallClass[][] ballArray = new BallClass[7][7];
 	public Compare()
 	{
+		ballArray = new BallClass[7][7];
 			for(BallClass[] b : ballArray)
 			{
 				for(BallClass bc : b)
 					{
-						b = null;
+						bc = null;
 					}
 			}
 			for(int x = 0; x < 7; x++)
@@ -46,7 +46,7 @@ public class Compare
 	}
 	public void setNextBallPos(int x, int y) //this sets the next balls position on the stack
 		{
-			ballArray[y][x] = nextBall;
+			ballArray[x][y] = nextBall;
 			nextBall = new BallClass();
 		}
 	public BallClass getNextBall()
@@ -60,7 +60,7 @@ public class Compare
 	}
 	public Color getBallColor(int xPos, int yPos)
 	{
-		return null; //TODO implement colorSystem
+		return ballArray[xPos][yPos].getColor();
 	}
 	public int getBallnum(int x , int y) //returns the number of the ball at the position
 	{
@@ -71,18 +71,7 @@ public class Compare
 		return nextBall.getBallNum();
 	}
 
-	public void CheckXCoord(int xColumn, int compareNum)
-	{
-		System.out.println(xColumn+" ");
-		for(int x = 0; x < ballArray[xColumn].length;x++)
-			{
-				if(ballArray[xColumn][x].getBallNum() == compareNum)
-					{
-						ballArray[xColumn][x] = null;
-					}
-			}
-	}
-	public void CheckYCoord(int yColumn)
+	public void popBalls(int xColumn)
 	{
 		
 	}

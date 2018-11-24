@@ -14,7 +14,7 @@ public class inputOutput
 		private File ScoreFile;
 		public inputOutput() throws FileNotFoundException
 		{
-		colorFile = new File("/Users/davidmendez/code/Eclipse /workspace/Drop7Clone/src/drop7Clone/colors.txt");
+		colorFile = new File("/Users/jordanphillips/Code/notSchool/Drop7Clone/src/drop7Clone/colors.txt");
 		Scanner colorSc = new Scanner(colorFile);
 		for(int x = 0; x<16; x++)
 			{
