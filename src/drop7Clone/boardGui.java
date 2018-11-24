@@ -3,7 +3,6 @@ package drop7Clone;
 import java.awt.BorderLayout;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +10,6 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -24,7 +22,6 @@ import java.awt.Component;
 
 public class boardGui extends JFrame
 {
-
 	private JPanel contentPane;
 	private BallButton[][] btnArray;
 
@@ -49,9 +46,6 @@ public class boardGui extends JFrame
 			});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public boardGui()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,20 +127,11 @@ public class boardGui extends JFrame
 								btnArray[xCoord][yCoord].setText("" + comp.getNextBallNum());
 								comp.setNextBallPos(xCoord, yCoord);
 
-	
-
-
-
-
-
-
 							// comp.popBalls(xCoord);
 								nextNumLbl.setText("next ball: " + comp.getNextBallNum());
 								comp.getNextBall();
 								
 								btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
-						
-
 
 	}
 							for (int x = 6; x > -1; x--)
@@ -168,7 +153,7 @@ public class boardGui extends JFrame
 					});
 			}
 		}
-		for (int q = 0; q < 7; q++)
+		for (int q = 0; q < 7; q++) {
 		
 			btnArray[6][q].setText("" + comp.getBallnum(q, 6));
 			btnArray[5][q].setText("" + comp.getBallnum(q, 5));
