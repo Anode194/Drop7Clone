@@ -36,7 +36,7 @@ public class inputOutput
 				}
 		}
 		
-		public Color getColorArray(int x)
+		public Color getColor(int x)
 		{
 			return colors[x];
 		}
