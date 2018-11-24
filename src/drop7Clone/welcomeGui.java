@@ -118,7 +118,7 @@ public class welcomeGui extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 					welcomeGui.DISPOSE_ON_CLOSE();
-				boardGui trip = new boardGui();
+				BoardGui trip = new BoardGui();
 				trip.setVisible(true);
 			}
 		});

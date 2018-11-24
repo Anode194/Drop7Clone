@@ -1,7 +1,6 @@
 package drop7Clone;
 
 import java.awt.BorderLayout;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,7 +19,8 @@ import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import java.awt.Component;
 
-public class boardGui extends JFrame
+
+public class BoardGui extends JFrame
 {
 	private JPanel contentPane;
 	private BallButton[][] btnArray;
@@ -46,7 +46,7 @@ public class boardGui extends JFrame
 //			});
 //	}
 
-	public boardGui()
+	public BoardGui()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 800);
