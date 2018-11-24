@@ -16,9 +16,6 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 
-import canvas.Home;
-import canvas.Programming;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -120,7 +117,6 @@ public class welcomeGui extends JFrame {
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if (startBtn.isSelected())
 					welcomeGui.DISPOSE_ON_CLOSE();
 				boardGui trip = new boardGui();
 				trip.setVisible(true);

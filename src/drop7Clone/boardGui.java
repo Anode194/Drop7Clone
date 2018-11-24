@@ -28,23 +28,23 @@ public class boardGui extends JFrame
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-			{
-				public void run()
-				{
-					try
-					{
-						boardGui frame = new boardGui();
-						frame.setVisible(true);
-					} catch (Exception e)
-					{
-						e.printStackTrace();
-					}
-				}
-			});
-	}
+//	public static void main(String[] args)
+//	{
+//		EventQueue.invokeLater(new Runnable()
+//			{
+//				public void run()
+//				{
+//					try
+//					{
+//						boardGui frame = new boardGui();
+//						frame.setVisible(true);
+//					} catch (Exception e)
+//					{
+//						e.printStackTrace();
+//					}
+//				}
+//			});
+//	}
 
 	public boardGui()
 	{
@@ -126,25 +126,6 @@ public class boardGui extends JFrame
 							{
 								btnArray[xCoord][yCoord].setText("" + comp.getNextBallNum());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 								comp.setNextBallPos(xCoord, yCoord);
 
 							// comp.popBalls(xCoord);
@@ -160,7 +141,7 @@ public class boardGui extends JFrame
 								nextNumLbl.setText("next ball: " + comp.getNextBallNum());
 								comp.getNextBall();
 								
-							}
+							
 							for (int x = 6; x > -1; x--)
 							{
 								for (int y = 6; y >-1; y--)
@@ -182,14 +163,13 @@ public class boardGui extends JFrame
 			}
 		}
 		for (int q = 0; q < 7; q++) {
-<<<<<<< HEAD
 		
-=======
 			btnArray[6][q].setBackground(comp.getBallColor(q , 6));
 			btnArray[5][q].setBackground(comp.getBallColor(q , 5));
->>>>>>> 5ada5d0c6b1b05c53b18b2e21f04b517b1af52b4
+
 			btnArray[6][q].setText("" + comp.getBallnum(q, 6));
 			btnArray[5][q].setText("" + comp.getBallnum(q, 5));
+
 			btnArray[5][q].setHasNumber(true);
 			btnArray[6][q].setHasNumber(true);
 		}
