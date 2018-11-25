@@ -122,15 +122,14 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
-							//System.out.println(xCoord+" "+yCoord);
-							//comp.debug();
+							
 							comp.setNextBallPos(xCoord, yCoord);
 							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
 							btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord));
 							btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
 							comp.popBalls(xCoord,yCoord);
 							
-							for(int q =0; q <7; q++)
+							for(int q =0; q <7; q++)				//redraws the text and background of the gui after the balls have been popped.
 							{
 								for(int z =0; z < 7; z++)
 								{

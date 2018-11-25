@@ -68,26 +68,33 @@ public class Compare
 	}
 
 	public void popBalls(int xColumn, int yRow)
-	{	int notNullCounter = 0;
+	{	int notNullCounterX = 0;
+		int notNullCounterY = 0;
 		int compare = ballArray[xColumn][yRow].getBallNum();
 		//System.out.println(ballArray[xColumn].length);
 		for(int q = 0; q < ballArray[xColumn].length; q++)
 		{
-			if(ballArray[q][yRow] != null) notNullCounter++;
+			if(ballArray[q][yRow] != null) notNullCounterX++;
 		}
 		for(int z = 0; z < 7; z++)
 		{
 			if(ballArray[z][yRow] != null)
 			{
-				if(ballArray[z][yRow].getBallNum() == notNullCounter)
-				{
-					ballArray[z][yRow] = null;
-				}
+				if(ballArray[z][yRow].getBallNum() == notNullCounterX) ballArray[z][yRow] = null;
 			}
 		}
-		System.out.println(notNullCounter);
-		//System.out.println(ballArray[xColumn][yRow].getBallNum());
-		
+
+		//System.out.println(notNullCounterX);
+		for(int q = 0; q < ballArray[xColumn].length; q++)
+		{
+			if(ballArray[xColumn][q] != null) notNullCounterY++;
+		}
+		System.out.println(notNullCounterY);
+		for(int z = 0; z < 7; z++)
+		{
+			if(ballArray[xColumn][z] != null)
+			if(ballArray[xColumn][z].getBallNum() == notNullCounterY) ballArray[xColumn][z] = null;
+		}
 	}
 	public Boolean checkBalls(int x, int y) //checks the ballArray so we can redraw the buttons.
 	{
