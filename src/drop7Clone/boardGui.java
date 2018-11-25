@@ -28,23 +28,23 @@ public class BoardGui extends JFrame
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args)
-//	{
-//		EventQueue.invokeLater(new Runnable()
-//			{
-//				public void run()
-//				{
-//					try
-//					{
-//						boardGui frame = new boardGui();
-//						frame.setVisible(true);
-//					} catch (Exception e)
-//					{
-//						e.printStackTrace();
-//					}
-//				}
-//			});
-//	}
+	public static void main(String[] args)
+	{
+		EventQueue.invokeLater(new Runnable()
+			{
+				public void run()
+				{
+					try
+					{
+						BoardGui frame = new BoardGui();
+						frame.setVisible(true);
+					} catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			});
+	}
 
 	public BoardGui()
 	{
@@ -111,64 +111,51 @@ public class BoardGui extends JFrame
 						{
 							int yCoord = 0;
 							int xCoord = 0;
-							for (int yCo = 6; yCo > -1;yCo--)
+							for (int xCo = 0; xCo < 7;xCo++)
 							{
-								for (int xCo = 6; xCo > -1; xCo--)
+								for (int yCo = 0; yCo < 7; yCo++)
 								{
-									if (btnArray[yCo][xCo].equals(e.getSource()))
+									if (btnArray[xCo][yCo].equals(e.getSource()))
 									{
 										xCoord = xCo;
 										yCoord = yCo;
 									}
 								}
 							}
-							if (btnArray[yCoord][xCoord].getHasNumber() == false)
-							{
-								btnArray[xCoord][yCoord].setText("" + comp.getNextBallNum());
-
-								comp.setNextBallPos(xCoord, yCoord);
-
-							// comp.popBalls(xCoord);
-								nextNumLbl.setText("next ball: " + comp.getNextBallNum());
-								comp.getNextBall();
-								
-								btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
-
-	}
-								System.out.println(xCoord + " "+yCoord);
-								comp.debug();
-							//	comp.popBalls(yCoord,comp.getBallnum(yCoord, xCoord));
-								nextNumLbl.setText("next ball: " + comp.getNextBallNum());
-								comp.getNextBall();
-								
+							//System.out.println(xCoord+" "+yCoord);
+							//comp.debug();
+							comp.setNextBallPos(xCoord, yCoord);
+							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
+							btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord));
+							btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
+							comp.popBalls(xCoord,yCoord);
 							
-							for (int x = 6; x > -1; x--)
+							for(int q =0; q <7; q++)
 							{
-								for (int y = 6; y >-1; y--)
+								for(int z =0; z < 7; z++)
 								{
-									if (!comp.isNull(x, y))
+									if(comp.isNull(q, z))
 									{
-										btnArray[yCoord][xCoord].setBackground(comp.getBallColor(x , y));
-										btnArray[y][x].setText("" + comp.getBallnum(x, y));
-										btnArray[y][x].setHasNumber(true);
-									} else
+									btnArray[q][z].setText(" ");
+									}else
 									{
-										btnArray[y][x].setText("");
-										btnArray[y][x].setHasNumber(false);
+									btnArray[q][z].setText(""+comp.getBallnum(q, z));
 									}
+									
 								}
 							}
+							
 						}
 					});
 			}
 		}
 		for (int q = 0; q < 7; q++) {
 		
-			btnArray[6][q].setBackground(comp.getBallColor(q , 6));
-			btnArray[5][q].setBackground(comp.getBallColor(q , 5));
+			btnArray[6][q].setBackground(comp.getBallColor(6 , q));
+			btnArray[5][q].setBackground(comp.getBallColor(5 , q));
 
-			btnArray[6][q].setText("" + comp.getBallnum(q, 6));
-			btnArray[5][q].setText("" + comp.getBallnum(q, 5));
+			btnArray[6][q].setText("" + comp.getBallnum(6, q));
+			btnArray[5][q].setText("" + comp.getBallnum(5, q));
 
 			btnArray[5][q].setHasNumber(true);
 			btnArray[6][q].setHasNumber(true);
