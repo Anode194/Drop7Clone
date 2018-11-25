@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -22,9 +23,14 @@ import java.awt.event.ActionEvent;
 public class welcomeGui extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtEnter;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField firstNameTXT;
+	private JTextField fileNameTXT;
+	private JTextArea charLabel;
+
+	private String firstName;
+	private String bigFeild;
+	private String fileName;
+	private JLabel bigTXTField;
 
 	/**
 	 * Launch the application.
@@ -59,54 +65,52 @@ public class welcomeGui extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel, BorderLayout.NORTH);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.DARK_GRAY);
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(3, 3, 40, 40));
+		JPanel rightNamep = new JPanel();
+		rightNamep.setBackground(Color.DARK_GRAY);
+		contentPane.add(rightNamep, BorderLayout.CENTER);
+		rightNamep.setLayout(new GridLayout(2, 3, 0, 70));
 
-		JLabel lblNewLabel_2 = new JLabel("\t\tFirst Name:");
+		JLabel lblNewLabel_2 = new JLabel("\t\t Name:");
 		lblNewLabel_2.setFont(new Font("Monaco", Font.PLAIN, 13));
 		lblNewLabel_2.setForeground(Color.WHITE);
-		panel.add(lblNewLabel_2);
+		rightNamep.add(lblNewLabel_2);
 
-		txtEnter = new JTextField();
-		txtEnter.setBackground(Color.GRAY);
-		txtEnter.setBorder(new LineBorder(new Color(0, 0, 0)));
-		txtEnter.setFont(new Font("Monaco", Font.BOLD, 20));
-		txtEnter.setForeground(new Color(128, 0, 0));
-		panel.add(txtEnter);
-		txtEnter.setColumns(10);
+		firstNameTXT = new JTextField();
+		firstNameTXT.setHorizontalAlignment(SwingConstants.CENTER);
+		firstNameTXT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstName = firstNameTXT.getText();
+				bigTXTField.setText(firstName);
+			}
+		});
+		firstNameTXT.setBackground(Color.GRAY);
+		firstNameTXT.setBorder(new LineBorder(new Color(0, 0, 0)));
+		firstNameTXT.setFont(new Font("Monaco", Font.BOLD, 20));
+		firstNameTXT.setForeground(new Color(128, 0, 0));
+		rightNamep.add(firstNameTXT);
+		firstNameTXT.setColumns(10);
 
-		JLabel lblNewLabel_5 = new JLabel("");
-		panel.add(lblNewLabel_5);
-
-		JLabel lblNewLabel_3 = new JLabel("\t\tLast Name: ");
-		lblNewLabel_3.setForeground(Color.WHITE);
-		lblNewLabel_3.setFont(new Font("Monaco", Font.BOLD, 13));
-		panel.add(lblNewLabel_3);
-
-		textField = new JTextField();
-		textField.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textField.setFont(new Font("Monaco", Font.BOLD, 20));
-		textField.setForeground(new Color(128, 0, 0));
-		textField.setBackground(Color.GRAY);
-		panel.add(textField);
-		textField.setColumns(10);
-
-		JLabel lblNewLabel_6 = new JLabel("");
-		panel.add(lblNewLabel_6);
+		JLabel rightsidnamel = new JLabel("");
+		rightNamep.add(rightsidnamel);
 
 		JLabel lblFileName = new JLabel("\t\t   File Name:");
 		lblFileName.setForeground(Color.WHITE);
-		panel.add(lblFileName);
+		rightNamep.add(lblFileName);
 
-		textField_1 = new JTextField();
-		textField_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		textField_1.setFont(new Font("Monaco", Font.BOLD, 20));
-		textField_1.setForeground(new Color(128, 0, 0));
-		textField_1.setBackground(Color.GRAY);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		fileNameTXT = new JTextField();
+		fileNameTXT.setHorizontalAlignment(SwingConstants.CENTER);
+		fileNameTXT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fileName = fileNameTXT.getText();
+				
+			}
+		});
+		fileNameTXT.setBorder(new LineBorder(new Color(0, 0, 0)));
+		fileNameTXT.setFont(new Font("Monaco", Font.BOLD, 20));
+		fileNameTXT.setForeground(new Color(128, 0, 0));
+		fileNameTXT.setBackground(Color.GRAY);
+		rightNamep.add(fileNameTXT);
+		fileNameTXT.setColumns(10);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.DARK_GRAY);
@@ -116,14 +120,27 @@ public class welcomeGui extends JFrame {
 
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-					welcomeGui.DISPOSE_ON_CLOSE();
+				welcomeGui.DISPOSE_ON_CLOSE();
 				BoardGui trip = new BoardGui();
 				trip.setVisible(true);
+				
+				if (startBtn != null) {
+					
+					
+				}
 			}
 		});
 		JLabel lblNewLabel_7 = new JLabel("");
 		panel_1.add(lblNewLabel_7);
+
+		bigTXTField = new JLabel();
+		bigTXTField.setOpaque(true);
+		bigTXTField.setHorizontalAlignment(SwingConstants.CENTER);
+		bigTXTField.setForeground(new Color(128, 0, 0));
+		bigTXTField.setBorder(new LineBorder(new Color(0, 0, 0)));
+		bigTXTField.setFont(new Font("Monaco", Font.BOLD, 20));
+		bigTXTField.setBackground(Color.GRAY);
+		panel_1.add(bigTXTField);
 		startBtn.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(0, 0, 0)));
 		startBtn.setBorderPainted(false);
 		startBtn.setOpaque(true);
@@ -132,11 +149,23 @@ public class welcomeGui extends JFrame {
 		startBtn.setFont(new Font("Monaco", Font.BOLD, 20));
 		panel_1.add(startBtn);
 
-		JLabel lblNewLabel_4 = new JLabel("Top High Score:0550123");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setForeground(new Color(255, 250, 205));
-		lblNewLabel_4.setFont(new Font("Monaco", Font.BOLD, 13));
-		panel_1.add(lblNewLabel_4);
+		JLabel highScore1 = new JLabel("Top High Score: David Mendez:0550123");
+		highScore1.setHorizontalAlignment(SwingConstants.CENTER);
+		highScore1.setForeground(new Color(255, 250, 205));
+		highScore1.setFont(new Font("Monaco", Font.BOLD, 10));
+		panel_1.add(highScore1);
+
+		JLabel highScore2 = new JLabel(" Score: Joebida:0434876");
+		highScore2.setHorizontalAlignment(SwingConstants.CENTER);
+		highScore2.setForeground(new Color(255, 250, 205));
+		highScore2.setFont(new Font("Monaco", Font.BOLD, 10));
+		panel_1.add(highScore2);
+		
+//		JLabel highScore3 = new JLabel(" Score: AmberToTaco:0234696");
+//		highScore3.setHorizontalAlignment(SwingConstants.CENTER);
+//		highScore3.setForeground(new Color(255, 250, 205));
+//		highScore3.setFont(new Font("Monaco", Font.BOLD, 10));
+//		panel_1.add(highScore3);
 
 		JLabel lblNewLabel_1 = new JLabel("");
 		contentPane.add(lblNewLabel_1, BorderLayout.EAST);
@@ -147,7 +176,5 @@ public class welcomeGui extends JFrame {
 	}
 
 	protected static void DISPOSE_ON_CLOSE() {
-		// TODO Auto-generated method stub
-
 	}
 }
