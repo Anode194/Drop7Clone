@@ -67,15 +67,27 @@ public class Compare
 		return nextBall.getBallNum(); //for showing the next ball num on the gui
 	}
 
-	public void popBalls(int xColumn, int compare)
-	{
-		for(BallClass b : ballArray[xColumn])
+	public void popBalls(int xColumn, int yRow)
+	{	int notNullCounter = 0;
+		int compare = ballArray[xColumn][yRow].getBallNum();
+		//System.out.println(ballArray[xColumn].length);
+		for(int q = 0; q < ballArray[xColumn].length; q++)
 		{
-			if(b.getBallNum() == compare)
+			if(ballArray[q][yRow] != null) notNullCounter++;
+		}
+		for(int z = 0; z < 7; z++)
+		{
+			if(ballArray[z][yRow] != null)
 			{
-				b = null;
+				if(ballArray[z][yRow].getBallNum() == notNullCounter)
+				{
+					ballArray[z][yRow] = null;
+				}
 			}
 		}
+		System.out.println(notNullCounter);
+		//System.out.println(ballArray[xColumn][yRow].getBallNum());
+		
 	}
 	public Boolean checkBalls(int x, int y) //checks the ballArray so we can redraw the buttons.
 	{
@@ -91,13 +103,28 @@ public class Compare
 		{
 			if(ballArray[x][y] == null) 
 			{
-			System.out.print("0 ");
-			System.out.print(" "+x + " "+ y);
+			System.out.print("00");
+	//		System.out.print(" "+x + " "+ y);
 			} else 
 			{
-			System.out.print("1 ");
-				System.out.print(" "+x + " "+ y);
+			//System.out.print("1 ");
+				System.out.print(""+x + ""+ y);
 				//System.out.print(ballArray[x][y].getBallNum()+" ");
+			}
+			
+		}
+		System.out.println(" ");
+		}
+		for(int x = 0; x <7; x++)
+		{
+		for(int y = 0; y < 7; y++)
+		{
+			if(ballArray[x][y] == null) 
+			{
+				System.out.print("0 ");
+			} else 
+			{
+				System.out.print(ballArray[x][y].getBallNum()+" ");
 			}
 			
 		}

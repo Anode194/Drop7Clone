@@ -111,9 +111,9 @@ public class BoardGui extends JFrame
 						{
 							int yCoord = 0;
 							int xCoord = 0;
-							for (int xCo = 6; xCo > -1;xCo--)
+							for (int xCo = 0; xCo < 7;xCo++)
 							{
-								for (int yCo = 6; yCo > -1; yCo--)
+								for (int yCo = 0; yCo < 7; yCo++)
 								{
 									if (btnArray[xCo][yCo].equals(e.getSource()))
 									{
@@ -122,12 +122,28 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
-							System.out.println(xCoord+" "+yCoord);
-							comp.debug();
+							//System.out.println(xCoord+" "+yCoord);
+							//comp.debug();
 							comp.setNextBallPos(xCoord, yCoord);
 							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
 							btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord));
+							btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
+							comp.popBalls(xCoord,yCoord);
 							
+							for(int q =0; q <7; q++)
+							{
+								for(int z =0; z < 7; z++)
+								{
+									if(comp.isNull(q, z))
+									{
+									btnArray[q][z].setText(" ");
+									}else
+									{
+									btnArray[q][z].setText(""+comp.getBallnum(q, z));
+									}
+									
+								}
+							}
 							
 						}
 					});
