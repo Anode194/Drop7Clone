@@ -135,11 +135,11 @@ public class BoardGui extends JFrame
 								{
 									if(comp.isNull(q, z))
 									{
-									btnArray[q][z].setText(" ");
-									btnArray[q][z].setBackground(Color.DARK_GRAY);
+										btnArray[q][z].setText(" ");
+										btnArray[q][z].setBackground(Color.DARK_GRAY);
 									}else
 									{
-									btnArray[q][z].setText(""+comp.getBallnum(q, z));
+										btnArray[q][z].setText(""+comp.getBallnum(q, z));
 									}
 									
 								}
