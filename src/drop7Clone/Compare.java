@@ -70,6 +70,7 @@ public class Compare
 	public void popBalls(int xColumn, int yRow)
 	{	int notNullCounterX = 0;
 		int notNullCounterY = 0;
+		
 		int compare = ballArray[xColumn][yRow].getBallNum();
 		//System.out.println(ballArray[xColumn].length);
 		for(int q = 0; q < ballArray[xColumn].length; q++)
@@ -83,13 +84,27 @@ public class Compare
 				if(ballArray[z][yRow].getBallNum() == notNullCounterX) ballArray[z][yRow] = null;
 			}
 		}
-
-		//System.out.println(notNullCounterX);
-		for(int q = 0; q < ballArray[xColumn].length; q++)
+		notNullCounterY = 0;
+		int checkRight = yRow;
+		int checkLeft = yRow;
+			while(ballArray[xColumn][checkRight] != null)
+				{
+					notNullCounterY++;
+					if(checkRight == 6) break;
+					checkRight++;
+				}
+			while(ballArray[xColumn][checkLeft] != null)
+			{
+				notNullCounterY++;
+				if(checkLeft == 0) break;
+				checkLeft--;
+			}
+		if(notNullCounterY != 1 || notNullCounterY !=7 || notNullCounterY != 0)
 		{
-			if(ballArray[xColumn][q] != null) notNullCounterY++;
+			notNullCounterY -= 1;
 		}
 		System.out.println(notNullCounterY);
+		
 		for(int z = 0; z < 7; z++)
 		{
 			if(ballArray[xColumn][z] != null)
