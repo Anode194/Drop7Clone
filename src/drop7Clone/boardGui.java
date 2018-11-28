@@ -48,6 +48,7 @@ public class BoardGui extends JFrame
 
 	public BoardGui()
 	{
+		Compare comp = new Compare();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 800);
 		contentPane = new JPanel();
@@ -68,27 +69,26 @@ public class BoardGui extends JFrame
 		panel_1.setForeground(new Color(128, 0, 0));
 		contentPane.add(panel_1, BorderLayout.NORTH);
 
-		JLabel lblNewLabel = new JLabel("Score Board:0000000");
+		JLabel lblNewLabel = new JLabel(String.format("%8d", comp.getScore()));
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBackground(new Color(250, 235, 215));
 		lblNewLabel.setForeground(new Color(128, 0, 0));
 		lblNewLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Level:001");
+		JLabel lblNewLabel_1 = new JLabel("Level: "+comp.getLevel());
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(new Color(0, 0, 139));
 		lblNewLabel_1.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblNewLabel_1);
 
-		JLabel lblBalls = new JLabel("Balls:14");
+		JLabel lblBalls = new JLabel("Balls: "+comp.getBallsLeft());
 		lblBalls.setForeground(new Color(0, 0, 128));
 		lblBalls.setFont(new Font("Monaco", Font.BOLD, 18));
 		lblBalls.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(lblBalls);
 
-		Compare comp = new Compare();
 
 		JLabel nextNumLbl = new JLabel(String.format("next Ball: %d", comp.getNextBallNum()));
 		panel_1.add(nextNumLbl);
@@ -128,37 +128,36 @@ public class BoardGui extends JFrame
 							btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord));
 							btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
 							comp.popBalls(xCoord,yCoord);
+							lblNewLabel.setText(String.format("%8d", comp.getScore()));
+							lblBalls.setText(String.format("%8d", comp.getBallsLeft()));
 							
-							for(int q =0; q <7; q++)				//redraws the text and background of the gui after the balls have been popped.
-							{
-								for(int z =0; z < 7; z++)
-								{
-									if(comp.isNull(q, z))
-									{
-										btnArray[q][z].setText(" ");
-										btnArray[q][z].setBackground(Color.DARK_GRAY);
-									}else
-									{
-										btnArray[q][z].setText(""+comp.getBallnum(q, z));
-									}
-									
-								}
-							}
+							redrawScreen(comp);
 							
 						}
 					});
 			}
 		}
-		for (int q = 0; q < 7; q++) {
-		
-			btnArray[6][q].setBackground(comp.getBallColor(6 , q));
-			btnArray[5][q].setBackground(comp.getBallColor(5 , q));
+		redrawScreen(comp);
 
-			btnArray[6][q].setText("" + comp.getBallnum(6, q));
-			btnArray[5][q].setText("" + comp.getBallnum(5, q));
+	}
 
-			btnArray[5][q].setHasNumber(true);
-			btnArray[6][q].setHasNumber(true);
+	private void redrawScreen(Compare comp)
+	{
+		for(int q =0; q <7; q++)				//redraws the text and background of the gui after the balls have been popped.
+		{
+			for(int z =0; z < 7; z++)
+			{
+				if(comp.isNull(q, z))
+				{
+					btnArray[q][z].setText(" ");
+					btnArray[q][z].setBackground(Color.DARK_GRAY);
+				}else
+				{
+					btnArray[q][z].setText(""+comp.getBallnum(q, z));
+					btnArray[q][z].setBackground(comp.getBallColor(q, z));
+				}
+				
+			}
 		}
 	}
 }

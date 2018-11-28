@@ -7,6 +7,9 @@ public class Compare
 {
 	BallClass[][] ballArray;
 	BallClass nextBall;
+	private int ballsLeft;
+	private int level;
+	private int score;
 
 	// List<List<BallClass>> ballArray = new ArrayList<List<BallClass>>(8); //2 dim
 	// arraylist of balls
@@ -24,8 +27,14 @@ public class Compare
 		{
 			ballArray[6][y] = new BallClass();
 			ballArray[5][y] = new BallClass();
+			
+			
 		}
+		popBalls(6,0);
+		popBalls(5,6);
 		nextBall = new BallClass();
+		ballsLeft = 14;
+		level =1;
 	}
 
 	public boolean isNull(int x, int y)
@@ -51,6 +60,14 @@ public class Compare
 	{
 		ballArray[x][y] = nextBall;
 		nextBall = new BallClass();
+		if(ballsLeft > 1)
+		{
+		ballsLeft--;
+		} else
+		{
+			ballsLeft = 14;
+			level++;
+		}
 	}
 
 	public int setNewBall(BallClass ball, int x, int y)
@@ -76,6 +93,8 @@ public class Compare
 
 	private void shiftBalls()
 	{
+		for(int r =0; r<49; r++)
+		{
 		for (int y = 1; y < 7; y++)
 		{
 			for (int x = 0; x < 7; x++)
@@ -87,6 +106,7 @@ public class Compare
 					ballArray[y-1][x] = null;
 				}
 			}
+		}
 		}
 	}
 
@@ -105,7 +125,11 @@ public class Compare
 		{
 			if (ballArray[z][yRow] != null)
 			{
-				if (ballArray[z][yRow].getBallNum() == notNullCounterX) ballArray[z][yRow] = null;
+				if (ballArray[z][yRow].getBallNum() == notNullCounterX) 
+					{
+						setScore(ballArray[z][yRow].getPointValue());
+						ballArray[z][yRow] = null;
+					}
 			}
 		}
 		notNullCounterY = 0;
@@ -131,7 +155,13 @@ public class Compare
 		for (int z = 0; z < 7; z++)
 		{
 			if (ballArray[xColumn][z] != null)
-				if (ballArray[xColumn][z].getBallNum() == notNullCounterY) ballArray[xColumn][z] = null;
+			{
+				if (ballArray[xColumn][z].getBallNum() == notNullCounterY) 
+				{
+					setScore(ballArray[xColumn][z].getPointValue());
+					ballArray[xColumn][z] = null;
+				}
+			}
 		}
 		shiftBalls();
 	}
@@ -142,8 +172,15 @@ public class Compare
 			return true;
 		else return false;
 	}
-
-	public void debug()
+	public int getBallsLeft()
+	{
+		return ballsLeft;
+	}
+	public int getLevel()
+	{
+		return level;
+	}
+	public void debug() //delete before turning in
 	{
 		for (int x = 0; x < 7; x++)
 		{
@@ -178,5 +215,13 @@ public class Compare
 			}
 			System.out.println(" ");
 		}
+	}
+	private void setScore(int points)
+	{
+		score+=points;
+	}
+	public int getScore()
+	{
+		return score;
 	}
 }
