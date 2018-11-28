@@ -122,17 +122,16 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
+							btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
+							btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 							
 							comp.setNextBallPos(xCoord, yCoord);
 							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
-							btnArray[xCoord][yCoord].setText(""+comp.getBallnum(xCoord, yCoord));
-							btnArray[xCoord][yCoord].setBackground(comp.getBallColor(xCoord, yCoord));
 							comp.popBalls(xCoord,yCoord);
-							lblNewLabel.setText(String.format("%8d", comp.getScore()));
-							lblBalls.setText(String.format("%8d", comp.getBallsLeft()));
+							lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
+							lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
 							
 							redrawScreen(comp);
-							
 						}
 					});
 			}

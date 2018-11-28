@@ -1,7 +1,9 @@
 package drop7Clone;
 
 import java.awt.Color;
+
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Compare
 {
@@ -90,10 +92,14 @@ public class Compare
 	{
 		return nextBall.getBallNum(); // for showing the next ball num on the gui
 	}
-
-	private void shiftBalls()
+	public Color getNextBallCol()
 	{
-		for(int r =0; r<49; r++)
+		return nextBall.getColor();
+	}
+
+	private void shiftBalls() //shifts all the balls down after they have been popped.
+	{
+		for(int r =0; r<50; r++)
 		{
 		for (int y = 1; y < 7; y++)
 		{
@@ -104,6 +110,7 @@ public class Compare
 					if(x ==0)break;
 					ballArray[y][x] = ballArray[y-1][x];
 					ballArray[y-1][x] = null;
+					popBalls(y,x);
 				}
 			}
 		}
@@ -151,7 +158,7 @@ public class Compare
 		{
 			notNullCounterY -= 1;
 		}
-
+		System.out.println(notNullCounterY);
 		for (int z = 0; z < 7; z++)
 		{
 			if (ballArray[xColumn][z] != null)
