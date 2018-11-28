@@ -63,13 +63,19 @@ git pull - run this everytime you start working. or anytime I need you to see ch
 git push - this pushes the changes to git hub so I can have your work and it can be saved in the cloud!
 git status - tells you if you have commits that need to be pushed to git hub
 ### To Do list David
- *  rename gui variables so there variable names are descriptive (low priority)
- *  make it so the BoardGui Method can take a InputOutput object and assign it as a membor of the class.
- *  make a new initializer in the compare class that that takes in a InputOutput object as a parameter and assigns it as a class member. 
- *  create inputOutput object in the welcome class and pass it in with the BoardGui when it gets created in the buttons actionListener (high priority)
- *  in the ballClass create a second initializer that takes ina InputOut object and in the init assign it to a class member.
- *  in the ballClass switch statement assign a differant color to each ball number.
- *  Assign the forground and background colors in the welcome screen and the boardGui with io.getColor(x); x being the number where the background or forground is stored.
- *  fix the colors.txt file so it only has the exact number of colors we need (low priority)
- *  
-
+*   rename gui variables so there variable names are descriptive (low priority)
+*   make it so the BoardGui Method can take a InputOutput object and assign it as a membor of the class.
+*   make a new initializer in the compare class that that takes in a InputOutput object as a parameter and assigns it as a class member. 
+*   create inputOutput object in the welcome class and pass it in with the BoardGui when it gets created in the buttons actionListener (high priority)
+*   in the ballClass create a second initializer that takes ina InputOut object and in the init assign it to a class member.
+*   in the ballClass switch statement assign a differant color to each ball number.
+*   Assign the forground and background colors in the welcome screen and the boardGui with io.getColor(x); x being the number where the background or forground is stored.
+*   fix the colors.txt file so it only has the exact number of colors we need (low priority)
+*  
+### To do list Jo
+*   make shift balls method
+*   make pop balls run for every ball in the array when ever the method is run after the balls are shifted down.
+*   find a way to pause for a second between shifting the balls and popping them so you can see which ones are being popped.
+*   build the score system into the compare class
+*   set it so the score is updated everytime a ball is nulled out and is displayed in the gui
+*   implement the level system
