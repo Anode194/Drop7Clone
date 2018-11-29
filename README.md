@@ -73,9 +73,10 @@ git status - tells you if you have commits that need to be pushed to git hub
 *   fix the colors.txt file so it only has the exact number of colors we need (low priority)
 *  
 ### To do list Jo
-*   make shift balls method
+*   make shift balls method [x]
 *   make pop balls run for every ball in the array when ever the method is run after the balls are shifted down.
 *   find a way to pause for a second between shifting the balls and popping them so you can see which ones are being popped.
-*   build the score system into the compare class
+*   build the score system into the compare class [x]
 *   set it so the score is updated everytime a ball is nulled out and is displayed in the gui
-*   implement the level system
+*   implement the level system including the shifting balls up and putting in new row.[]
+    implement the white ball feature
