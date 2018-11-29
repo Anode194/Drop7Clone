@@ -18,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 
 public class welcomeGui extends JFrame {
@@ -31,6 +33,7 @@ public class welcomeGui extends JFrame {
 	private String bigFeild;
 	private String fileName;
 	private JLabel bigTXTField;
+	private inputOutput vio;
 
 	/**
 	 * Launch the application.
@@ -102,7 +105,7 @@ public class welcomeGui extends JFrame {
 		fileNameTXT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				fileName = fileNameTXT.getText();
-				
+
 			}
 		});
 		fileNameTXT.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -123,10 +126,20 @@ public class welcomeGui extends JFrame {
 				welcomeGui.DISPOSE_ON_CLOSE();
 				BoardGui trip = new BoardGui();
 				trip.setVisible(true);
-				
-				if (startBtn != null) {
-					
-					
+
+				try {
+
+					if (firstName != null) {
+						vio = new inputOutput(firstName);
+					} else if (fileName != null && firstName != null) {
+
+						vio = new inputOutput(new File(fileName, firstName), firstName);
+					} else {
+						bigTXTField.setName(firstName);
+					}
+
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -160,12 +173,6 @@ public class welcomeGui extends JFrame {
 		highScore2.setForeground(new Color(255, 250, 205));
 		highScore2.setFont(new Font("Monaco", Font.BOLD, 10));
 		panel_1.add(highScore2);
-		
-//		JLabel highScore3 = new JLabel(" Score: AmberToTaco:0234696");
-//		highScore3.setHorizontalAlignment(SwingConstants.CENTER);
-//		highScore3.setForeground(new Color(255, 250, 205));
-//		highScore3.setFont(new Font("Monaco", Font.BOLD, 10));
-//		panel_1.add(highScore3);
 
 		JLabel lblNewLabel_1 = new JLabel("");
 		contentPane.add(lblNewLabel_1, BorderLayout.EAST);

@@ -15,7 +15,7 @@ public class BallClass {
 	{
 
 		try {
-			io = new inputOutput();
+			io = new inputOutput(null);
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();

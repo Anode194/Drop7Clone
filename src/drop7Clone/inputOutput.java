@@ -12,21 +12,22 @@ public class inputOutput
 		private Color[] colors = new Color[16];
 		private File colorFile;
 		private File ScoreFile;
-		public inputOutput() throws FileNotFoundException
+		private String name;
+		
+		public inputOutput(String name_1) throws FileNotFoundException
 		{
-		colorFile = new File("/tmp/colors.txt");
-		Scanner colorSc = new Scanner(colorFile);
+		Scanner colorSc = new Scanner(inputOutput.class.getResourceAsStream("colors.txt"));
 		for(int x = 0; x<16; x++)
 			{
 				colorCodes[x] = colorSc.nextLine();
 				colors[x] = Color.decode(colorCodes[x]);
 			}
+		name = name_1;
 		}
-		public inputOutput(File f) throws FileNotFoundException
+		public inputOutput(File f,String name_1) throws FileNotFoundException
 		{
 	
-			
-		
+
 			colorFile = f;
 			Scanner colorSc = new Scanner(colorFile);
 			for(int x = 0; x<16; x++)
