@@ -36,7 +36,7 @@ public class BoardGui extends JFrame
 				{
 					try
 					{
-						BoardGui frame = new BoardGui();
+						welcomeGui frame = new welcomeGui();
 						frame.setVisible(true);
 					} catch (Exception e)
 					{
@@ -46,11 +46,12 @@ public class BoardGui extends JFrame
 			});
 	}
 
-	public BoardGui()
+	public BoardGui(inputOutput io)
 	{
+		
 		Compare comp = new Compare();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 800);
+		setBounds(100, 100, 750, 950);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,7 +93,7 @@ public class BoardGui extends JFrame
 
 		JLabel nextNumLbl = new JLabel("Next Ball: 2");
 		nextNumLbl.setForeground(new Color(0, 0, 128));
-		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(nextNumLbl);
 		btnArray = new BallButton[7][7];
@@ -104,7 +105,8 @@ public class BoardGui extends JFrame
 				btnArray[x][y] = new BallButton((x), (y));
 				btnArray[x][y].setBorder(new LineBorder(new Color(0, 0, 0), 2));
 				btnArray[x][y].setBackground(Color.DARK_GRAY);
-				btnArray[x][y].setForeground(Color.RED);
+				btnArray[x][y].setFont(new Font("Monaco",Font.BOLD,28));
+				btnArray[x][y].setForeground(Color.white);
 				btnArray[x][y].setOpaque(true);
 				panel.add(btnArray[x][y]);
 				btnArray[x][y].addActionListener(new ActionListener()
