@@ -90,7 +90,10 @@ public class BoardGui extends JFrame
 		panel_1.add(lblBalls);
 
 
-		JLabel nextNumLbl = new JLabel(String.format("next Ball: %d", comp.getNextBallNum()));
+		JLabel nextNumLbl = new JLabel("Next Ball: 2");
+		nextNumLbl.setForeground(new Color(0, 0, 128));
+		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(nextNumLbl);
 		btnArray = new BallButton[7][7];
 

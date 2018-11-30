@@ -9,9 +9,11 @@ public class BallClass {
 	private int pointValue;
 	private int ballNum;
 	private Color color;
+							// because we are changing the value of color we have to have a color set for all of them 
 	private boolean isWhite;
 	private boolean isCracked;
 	private inputOutput io;
+	
 	{
 
 		try {
@@ -30,36 +32,43 @@ public class BallClass {
 			pointValue = 49;
 			color = io.getColor(0);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 2:
 			pointValue = 42;
 			color = io.getColor(1);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 3:
 			pointValue = 35;
 			color = io.getColor(2);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 4:
 			pointValue = 28;
 			color = io.getColor(3);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 5:
 			pointValue = 35;
 			color = io.getColor(4);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 6:
 			pointValue = 42;
 			color = io.getColor(5);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 
 		case 7:
 			pointValue = 49;
 			color = io.getColor(6);
 			isWhite = (randWhiteBallNum < 15) ? false : true;
+			break;
 		}
 	}
 
