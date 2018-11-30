@@ -125,16 +125,27 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
-							btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
-							btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
-							
-							comp.setNextBallPos(xCoord, yCoord);
-							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
-							comp.popBalls(xCoord,yCoord);
-							lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
-							lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
-							
-							redrawScreen(comp);
+							if(comp.isNull(xCoord, yCoord)) 
+							{
+								btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
+								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
+								try
+								{
+									Thread.sleep(100);
+								} catch (InterruptedException e1)
+								{
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								redrawScreen(comp);
+								comp.setNextBallPos(xCoord, yCoord);
+								redrawScreen(comp);
+								nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
+								comp.popBalls(xCoord,yCoord);
+								lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
+								lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
+								redrawScreen(comp);
+							}
 						}
 					});
 			}

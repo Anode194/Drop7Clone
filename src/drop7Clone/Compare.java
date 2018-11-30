@@ -107,10 +107,11 @@ public class Compare
 			{
 				if(ballArray[y][x] == null && ballArray[y-1][x]!=null)
 				{
-					if(x ==0)break;
 					ballArray[y][x] = ballArray[y-1][x];
 					ballArray[y-1][x] = null;
+					System.out.println(y+" "+x);
 					popBalls(y,x);
+					if(x ==0)break;
 				}
 			}
 		}
@@ -158,7 +159,7 @@ public class Compare
 		{
 			notNullCounterY -= 1;
 		}
-		System.out.println(notNullCounterY);
+		//System.out.println(notNullCounterY);
 		for (int z = 0; z < 7; z++)
 		{
 			if (ballArray[xColumn][z] != null)
