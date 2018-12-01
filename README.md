@@ -74,9 +74,11 @@ git status - tells you if you have commits that need to be pushed to git hub
 *  
 ### To do list Jo
 *   make shift balls method [x]
-*   make pop balls run for every ball in the array when ever the method is run after the balls are shifted down.
+*   make pop balls run for every ball in the array when ever the method is run after the balls are shifted down. [x]
 *   find a way to pause for a second between shifting the balls and popping them so you can see which ones are being popped.
 *   build the score system into the compare class [x]
-*   set it so the score is updated everytime a ball is nulled out and is displayed in the gui
-*   implement the level system including the shifting balls up and putting in new row.[]
-    implement the white ball feature
+*   set it so the score is updated everytime a ball is nulled out and is displayed in the gui [x]
+*   implement the level system including the shifting balls up and putting in new row.[x]
+*   implement the white ball feature
+*   general debugging
+*   possibly simply popBalls Feature so that everytime a ball is popped it is visually obvious what is happening.[]
