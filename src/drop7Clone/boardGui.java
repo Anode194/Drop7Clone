@@ -76,12 +76,12 @@ public class BoardGui extends JFrame
 		lblNewLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Level: "+comp.getLevel());
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(0, 0, 139));
-		lblNewLabel_1.setFont(new Font("Monaco", Font.BOLD, 18));
-		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.add(lblNewLabel_1);
+		JLabel levelLabel = new JLabel("Level: "+comp.getLevel());
+		levelLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		levelLabel.setForeground(new Color(0, 0, 139));
+		levelLabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		levelLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.add(levelLabel);
 
 		JLabel lblBalls = new JLabel("Balls: "+comp.getBallsLeft());
 		lblBalls.setForeground(new Color(0, 0, 128));
@@ -90,7 +90,7 @@ public class BoardGui extends JFrame
 		panel_1.add(lblBalls);
 
 
-		JLabel nextNumLbl = new JLabel("Next Ball: 2");
+		JLabel nextNumLbl = new JLabel(String.format("Next Ball: %d",comp.getNextBallNum()));
 		nextNumLbl.setForeground(new Color(0, 0, 128));
 		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
@@ -129,19 +129,14 @@ public class BoardGui extends JFrame
 							{
 								btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
 								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
-								try
-								{
-									Thread.sleep(100);
-								} catch (InterruptedException e1)
-								{
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								redrawScreen(comp);
+								
 								comp.setNextBallPos(xCoord, yCoord);
+								
+								redrawScreen(comp);
+								comp.popBalls();
 								redrawScreen(comp);
 								nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
-								comp.popBalls(xCoord,yCoord);
+								levelLabel.setText(String.format("Level: %d",comp.getLevel()));
 								lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
 								lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
 								redrawScreen(comp);
