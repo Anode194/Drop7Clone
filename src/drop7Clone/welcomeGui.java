@@ -124,7 +124,7 @@ public class welcomeGui extends JFrame {
 		startBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				welcomeGui.DISPOSE_ON_CLOSE();
-				BoardGui trip = new BoardGui();
+				BoardGui trip = new BoardGui(vio);
 				trip.setVisible(true);
 
 				try {
