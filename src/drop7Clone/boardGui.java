@@ -91,11 +91,19 @@ public class BoardGui extends JFrame
 		panel_1.add(ballsLabel);
 
 
+<<<<<<< HEAD
 		JLabel NextBallNum = new JLabel("Next Ball: 2");
 		NextBallNum.setForeground(new Color(0, 0, 128));
 		NextBallNum.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		NextBallNum.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(NextBallNum);
+=======
+		JLabel nextNumLbl = new JLabel(String.format("Next Ball: %d",comp.getNextBallNum()));
+		nextNumLbl.setForeground(new Color(0, 0, 128));
+		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
+		panel_1.add(nextNumLbl);
+>>>>>>> 82fb1690d7b221c18e33eb04d2896da3b9fa3f31
 		btnArray = new BallButton[7][7];
 
 		for (int x = 0; x < 7; x++)
@@ -127,6 +135,7 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
+<<<<<<< HEAD
 							btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
 							btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 							
@@ -137,6 +146,24 @@ public class BoardGui extends JFrame
 							ballsLabel.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
 							
 							redrawScreen(comp);
+=======
+							if(comp.isNull(xCoord, yCoord)) 
+							{
+								btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
+								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
+								
+								comp.setNextBallPos(xCoord, yCoord);
+								
+								redrawScreen(comp);
+								comp.popBalls();
+								redrawScreen(comp);
+								nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
+								levelLabel.setText(String.format("Level: %d",comp.getLevel()));
+								lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
+								lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
+								redrawScreen(comp);
+							}
+>>>>>>> 82fb1690d7b221c18e33eb04d2896da3b9fa3f31
 						}
 					});
 			}
