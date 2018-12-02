@@ -70,12 +70,12 @@ public class BoardGui extends JFrame
 		panel_1.setForeground(new Color(128, 0, 0));
 		Border.add(panel_1, BorderLayout.NORTH);
 
-		JLabel ScoreLabel = new JLabel(String.format("%8d", comp.getScore()));
-		ScoreLabel.setOpaque(true);
-		ScoreLabel.setBackground(new Color(250, 235, 215));
-		ScoreLabel.setForeground(new Color(128, 0, 0));
-		ScoreLabel.setFont(new Font("Monaco", Font.BOLD, 18));
-		panel_1.add(ScoreLabel);
+		JLabel Scorelabel = new JLabel(String.format("%8d", comp.getScore()));
+		Scorelabel.setOpaque(true);
+		Scorelabel.setBackground(new Color(250, 235, 215));
+		Scorelabel.setForeground(new Color(128, 0, 0));
+		Scorelabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		panel_1.add(Scorelabel);
 
 		JLabel levelLabel = new JLabel("Level: "+comp.getLevel());
 		levelLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,11 +84,12 @@ public class BoardGui extends JFrame
 		levelLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(levelLabel);
 
-		JLabel ballsLeftLabel = new JLabel("Balls: "+comp.getBallsLeft());
-		ballsLeftLabel.setForeground(new Color(0, 0, 128));
-		ballsLeftLabel.setFont(new Font("Monaco", Font.BOLD, 18));
-		ballsLeftLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.add(ballsLeftLabel);
+		JLabel ballsLabel = new JLabel("Balls left: "+comp.getBallsLeft());
+		ballsLabel.setForeground(new Color(0, 0, 128));
+		ballsLabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		ballsLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.add(ballsLabel);
+
 
 		JLabel nextNumLbl = new JLabel(String.format("Next Ball: %d",comp.getNextBallNum()));
 		nextNumLbl.setForeground(new Color(0, 0, 128));
@@ -109,7 +110,6 @@ public class BoardGui extends JFrame
 				btnArray[x][y].setForeground(Color.white);
 				btnArray[x][y].setOpaque(true);
 				midSection2.add(btnArray[x][y]);
-
 				btnArray[x][y].addActionListener(new ActionListener()
 					{
 						@Override
@@ -128,7 +128,9 @@ public class BoardGui extends JFrame
 									}
 								}
 							}
+							
 							redrawScreen(comp);
+
 							if(comp.isNull(xCoord, yCoord)) 
 							{
 								btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
@@ -141,10 +143,11 @@ public class BoardGui extends JFrame
 								redrawScreen(comp);
 								nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
 								levelLabel.setText(String.format("Level: %d",comp.getLevel()));
-								ScoreLabel.setText(String.format("Score: %04d", comp.getScore()));
-								ballsLeftLabel.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
+								Scorelabel.setText(String.format("Score: %04d", comp.getScore()));
+								ballsLabel.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
 								redrawScreen(comp);
 							}
+
 						}
 					});
 			}
