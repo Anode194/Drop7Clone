@@ -77,7 +77,7 @@ public class Compare
 				}
 			}
 			for (int z = 0; z < 7; z++)
-				ballArray[6][y] = new BallClass();
+				ballArray[6][y] = new BallClass(true);
 		}
 	}
 
@@ -94,12 +94,24 @@ public class Compare
 
 	public int getBallnum(int x, int y) // returns the number of the ball at the position
 	{
+		if(ballArray[x][y].getWhiteStatus()== false)
+		{
 		return ballArray[x][y].getBallNum();
+		} else
+			return 9999;
 	}
 
 	public int getNextBallNum()
 	{
+		if(nextBall.getWhiteStatus() == false) 
+		{
 		return nextBall.getBallNum(); // for showing the next ball num on the gui
+
+		} else 
+		{
+			return 9999;
+		}
+
 	}
 
 	public Color getNextBallCol()
@@ -149,6 +161,14 @@ public class Compare
 						if (ballArray[z][y].getBallNum() == notNullCounterX)
 						{
 							setScore(ballArray[z][y].getPointValue());
+							if(ballArray[z][y+1].getWhiteStatus() == true)
+							{
+								ballArray[z][y].setWhiteStatus();
+							} else if(ballArray[z][y+1].getCrackedStatus() == true)
+							{
+								ballArray[z][y].setCrackedStatus();
+							}
+
 							ballArray[z][y] = null;
 						}
 					}

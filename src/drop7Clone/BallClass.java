@@ -14,6 +14,7 @@ public class BallClass {
 	private boolean isCracked;
 	private inputOutput io;
 	
+	public BallClass() 
 	{
 
 		try {
@@ -24,6 +25,11 @@ public class BallClass {
 		}
 
 		Random r = new Random();
+		int ballWhiteNum = r.nextInt(50);
+		if(ballWhiteNum > 42)
+		{
+			isWhite = true;
+		}
 		int randWhiteBallNum = r.nextInt(30);
 		ballNum = (r.nextInt(7) + 1);
 
@@ -71,7 +77,60 @@ public class BallClass {
 			break;
 		}
 	}
+	public BallClass(boolean b ) 
+	{
+		if(b == true)
+		{
+			isWhite = true;
+		}
+		
+		try {
+			io = new inputOutput(null);
+		} catch (FileNotFoundException e) {
 
+			e.printStackTrace();
+		}
+
+		Random r = new Random();
+		ballNum = (r.nextInt(7) + 1);
+
+		switch (ballNum) {
+		case 1:
+			pointValue = 49;
+			color = io.getColor(0);
+			break;
+
+		case 2:
+			pointValue = 42;
+			color = io.getColor(1);
+			break;
+
+		case 3:
+			pointValue = 35;
+			color = io.getColor(2);
+			break;
+
+		case 4:
+			pointValue = 28;
+			color = io.getColor(3);
+			break;
+
+		case 5:
+			pointValue = 35;
+			color = io.getColor(4);
+			break;
+
+		case 6:
+			pointValue = 42;
+			color = io.getColor(5);
+			break;
+
+		case 7:
+			pointValue = 49;
+			color = io.getColor(6);
+			break;
+		}
+	}
 	public int getPointValue() {
 		return pointValue;
 	}
@@ -113,7 +172,35 @@ public class BallClass {
 	}
 
 	public Color getColor() {
-		return color;
+		if(isWhite)
+		{
+			return Color.WHITE;
+		} else if(isCracked)
+		{
+			return Color.LIGHT_GRAY;
+		} else
+		{
+			return color;
+		}
+	}
+	public boolean getWhiteStatus()
+	{
+		return isWhite;
+				
+	}
+
+	public boolean getCrackedStatus()
+	{
+		return isCracked;
+	}
+	public void setWhiteStatus()
+	{
+		isWhite = false;
+		isCracked = true;
+	}
+	public void setCrackedStatus()
+	{
+		isCracked = false;
 	}
 
 	public void setBallNum(int ballNum2) {
