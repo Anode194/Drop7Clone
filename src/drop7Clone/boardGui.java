@@ -1,4 +1,4 @@
-package drop7Clone;
+ package drop7Clone;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -22,7 +22,7 @@ import java.awt.Component;
 
 public class BoardGui extends JFrame
 {
-	private JPanel contentPane;
+	private JPanel Border;
 	private BallButton[][] btnArray;
 
 	/**
@@ -52,50 +52,50 @@ public class BoardGui extends JFrame
 		Compare comp = new Compare();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 950);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(128, 0, 0));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		Border = new JPanel();
+		Border.setBackground(new Color(128, 0, 0));
+		Border.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Border.setLayout(new BorderLayout(0, 0));
+		setContentPane(Border);
 
-		JPanel panel = new JPanel(); // TODO rename all these variables so I know where they are on the form.
-		panel.setBackground(Color.DARK_GRAY);
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(7, 7, 0, 0));
+		JPanel midSection2 = new JPanel(); // TODO rename all these variables so I know where they are on the form.
+		midSection2.setBackground(Color.DARK_GRAY);
+		midSection2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		Border.add(midSection2, BorderLayout.CENTER);
+		midSection2.setLayout(new GridLayout(7, 7, 0, 0));
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBackground(new Color(250, 235, 215));
 		panel_1.setForeground(new Color(128, 0, 0));
-		contentPane.add(panel_1, BorderLayout.NORTH);
+		Border.add(panel_1, BorderLayout.NORTH);
 
-		JLabel lblNewLabel = new JLabel(String.format("%8d", comp.getScore()));
-		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(new Color(250, 235, 215));
-		lblNewLabel.setForeground(new Color(128, 0, 0));
-		lblNewLabel.setFont(new Font("Monaco", Font.BOLD, 18));
-		panel_1.add(lblNewLabel);
+		JLabel Scorelabel = new JLabel(String.format("%8d", comp.getScore()));
+		Scorelabel.setOpaque(true);
+		Scorelabel.setBackground(new Color(250, 235, 215));
+		Scorelabel.setForeground(new Color(128, 0, 0));
+		Scorelabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		panel_1.add(Scorelabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Level: "+comp.getLevel());
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(0, 0, 139));
-		lblNewLabel_1.setFont(new Font("Monaco", Font.BOLD, 18));
-		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.add(lblNewLabel_1);
+		JLabel levelLabel = new JLabel("Level: "+comp.getLevel());
+		levelLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		levelLabel.setForeground(new Color(0, 0, 139));
+		levelLabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		levelLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.add(levelLabel);
 
-		JLabel lblBalls = new JLabel("Balls: "+comp.getBallsLeft());
-		lblBalls.setForeground(new Color(0, 0, 128));
-		lblBalls.setFont(new Font("Monaco", Font.BOLD, 18));
-		lblBalls.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_1.add(lblBalls);
+		JLabel ballsLabel = new JLabel("Balls: "+comp.getBallsLeft());
+		ballsLabel.setForeground(new Color(0, 0, 128));
+		ballsLabel.setFont(new Font("Monaco", Font.BOLD, 18));
+		ballsLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_1.add(ballsLabel);
 
 
-		JLabel nextNumLbl = new JLabel("Next Ball: 2");
-		nextNumLbl.setForeground(new Color(0, 0, 128));
-		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
-		panel_1.add(nextNumLbl);
+		JLabel NextBallNum = new JLabel("Next Ball: 2");
+		NextBallNum.setForeground(new Color(0, 0, 128));
+		NextBallNum.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		NextBallNum.setFont(new Font("Monaco", Font.BOLD, 18));
+		panel_1.add(NextBallNum);
 		btnArray = new BallButton[7][7];
 
 		for (int x = 0; x < 7; x++)
@@ -108,7 +108,7 @@ public class BoardGui extends JFrame
 				btnArray[x][y].setFont(new Font("Monaco",Font.BOLD,28));
 				btnArray[x][y].setForeground(Color.white);
 				btnArray[x][y].setOpaque(true);
-				panel.add(btnArray[x][y]);
+				midSection2.add(btnArray[x][y]);
 				btnArray[x][y].addActionListener(new ActionListener()
 					{
 						@Override
@@ -131,10 +131,10 @@ public class BoardGui extends JFrame
 							btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 							
 							comp.setNextBallPos(xCoord, yCoord);
-							nextNumLbl.setText(String.format("next ball number: %d", comp.getNextBallNum()));
+							NextBallNum.setText(String.format("next ball number: %d", comp.getNextBallNum()));
 							comp.popBalls(xCoord,yCoord);
-							lblNewLabel.setText(String.format("Score: %04d", comp.getScore()));
-							lblBalls.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
+							Scorelabel.setText(String.format("Score: %04d", comp.getScore()));
+							ballsLabel.setText(String.format("You Have %d Balls Left.", comp.getBallsLeft()));
 							
 							redrawScreen(comp);
 						}

@@ -60,23 +60,23 @@ public class welcomeGui extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		JLabel lblNewLabel = new JLabel("Welcome to DropClone");
-		lblNewLabel.setBackground(new Color(0, 0, 0));
-		lblNewLabel.setBorder(new EmptyBorder(13, 13, 13, 13));
-		lblNewLabel.setFont(new Font("Monaco", Font.BOLD, 20));
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblNewLabel, BorderLayout.NORTH);
+		JLabel welcomelabel = new JLabel("Welcome to DropClone");
+		welcomelabel.setBackground(new Color(0, 0, 0));
+		welcomelabel.setBorder(new EmptyBorder(13, 13, 13, 13));
+		welcomelabel.setFont(new Font("Monaco", Font.BOLD, 20));
+		welcomelabel.setForeground(Color.WHITE);
+		welcomelabel.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(welcomelabel, BorderLayout.NORTH);
 
-		JPanel rightNamep = new JPanel();
-		rightNamep.setBackground(Color.DARK_GRAY);
-		contentPane.add(rightNamep, BorderLayout.CENTER);
-		rightNamep.setLayout(new GridLayout(2, 3, 0, 70));
+		JPanel midsection = new JPanel();
+		midsection.setBackground(Color.DARK_GRAY);
+		contentPane.add(midsection, BorderLayout.CENTER);
+		midsection.setLayout(new GridLayout(2, 3, 0, 70));
 
 		JLabel lblNewLabel_2 = new JLabel("\t\t Name:");
 		lblNewLabel_2.setFont(new Font("Monaco", Font.PLAIN, 13));
 		lblNewLabel_2.setForeground(Color.WHITE);
-		rightNamep.add(lblNewLabel_2);
+		midsection.add(lblNewLabel_2);
 
 		firstNameTXT = new JTextField();
 		firstNameTXT.setHorizontalAlignment(SwingConstants.CENTER);
@@ -90,15 +90,15 @@ public class welcomeGui extends JFrame {
 		firstNameTXT.setBorder(new LineBorder(new Color(0, 0, 0)));
 		firstNameTXT.setFont(new Font("Monaco", Font.BOLD, 20));
 		firstNameTXT.setForeground(new Color(128, 0, 0));
-		rightNamep.add(firstNameTXT);
+		midsection.add(firstNameTXT);
 		firstNameTXT.setColumns(10);
 
 		JLabel rightsidnamel = new JLabel("");
-		rightNamep.add(rightsidnamel);
+		midsection.add(rightsidnamel);
 
 		JLabel lblFileName = new JLabel("\t\t   File Name:");
 		lblFileName.setForeground(Color.WHITE);
-		rightNamep.add(lblFileName);
+		midsection.add(lblFileName);
 
 		fileNameTXT = new JTextField();
 		fileNameTXT.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,7 +112,7 @@ public class welcomeGui extends JFrame {
 		fileNameTXT.setFont(new Font("Monaco", Font.BOLD, 20));
 		fileNameTXT.setForeground(new Color(128, 0, 0));
 		fileNameTXT.setBackground(Color.GRAY);
-		rightNamep.add(fileNameTXT);
+		midsection.add(fileNameTXT);
 		fileNameTXT.setColumns(10);
 
 		JPanel panel_1 = new JPanel();
@@ -143,8 +143,8 @@ public class welcomeGui extends JFrame {
 				}
 			}
 		});
-		JLabel lblNewLabel_7 = new JLabel("");
-		panel_1.add(lblNewLabel_7);
+		JLabel spaceer = new JLabel("");
+		panel_1.add(spaceer);
 
 		bigTXTField = new JLabel();
 		bigTXTField.setOpaque(true);
