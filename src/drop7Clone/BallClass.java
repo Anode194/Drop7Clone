@@ -11,7 +11,6 @@ public class BallClass {
 	private Color color;
 							// because we are changing the value of color we have to have a color set for all of them 
 	private boolean isWhite;
-	private boolean isCracked;
 	private inputOutput io;
 	
 	public BallClass() 
@@ -37,43 +36,43 @@ public class BallClass {
 		case 1:
 			pointValue = 49;
 			color = io.getColor(0);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 2:
 			pointValue = 42;
 			color = io.getColor(1);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 3:
 			pointValue = 35;
 			color = io.getColor(2);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 4:
 			pointValue = 28;
 			color = io.getColor(3);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 5:
 			pointValue = 35;
 			color = io.getColor(4);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 6:
 			pointValue = 42;
 			color = io.getColor(5);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 
 		case 7:
 			pointValue = 49;
 			color = io.getColor(6);
-			isWhite = (randWhiteBallNum < 15) ? false : true;
+			isWhite = (randWhiteBallNum != 15) ? false : true;
 			break;
 		}
 	}
@@ -135,22 +134,8 @@ public class BallClass {
 		return pointValue;
 	}
 
-	public void setPointValue(int pointValue) {
-		this.pointValue = pointValue;
-	}
-
 	public int getBallNum() {
 		return ballNum;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ballNum;
-		result = prime * result + (isCracked ? 1231 : 1237);
-		result = prime * result + (isWhite ? 1231 : 1237);
-		return result;
 	}
 
 	@Override
@@ -164,8 +149,6 @@ public class BallClass {
 		BallClass other = (BallClass) obj;
 		if (ballNum != other.ballNum)
 			return false;
-		if (isCracked != other.isCracked)
-			return false;
 		if (isWhite != other.isWhite)
 			return false;
 		return true;
@@ -175,9 +158,6 @@ public class BallClass {
 		if(isWhite)
 		{
 			return Color.WHITE;
-		} else if(isCracked)
-		{
-			return Color.LIGHT_GRAY;
 		} else
 		{
 			return color;
@@ -189,21 +169,9 @@ public class BallClass {
 				
 	}
 
-	public boolean getCrackedStatus()
-	{
-		return isCracked;
-	}
 	public void setWhiteStatus()
 	{
 		isWhite = false;
-		isCracked = true;
-	}
-	public void setCrackedStatus()
-	{
-		isCracked = false;
 	}
 
-	public void setBallNum(int ballNum2) {
-		ballNum = ballNum2;
-	}
 }
