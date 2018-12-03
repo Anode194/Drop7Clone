@@ -85,14 +85,14 @@ public class BoardGui extends JFrame
 		panel_1.add(levelLabel);
 
 		JLabel ballsLabel = new JLabel("Balls left: "+comp.getBallsLeft());
-		ballsLabel.setForeground(new Color(0, 0, 128));
+		ballsLabel.setForeground(vio.getColor(14));
 		ballsLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		ballsLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(ballsLabel);
 
 
 		JLabel nextNumLbl = new JLabel(String.format("Next Ball: %d",comp.getNextBallNum()));
-		nextNumLbl.setForeground(new Color(0, 0, 128));
+		nextNumLbl.setForeground(vio.getColor(14));
 		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(nextNumLbl);
