@@ -45,9 +45,9 @@ public class Compare
 
 	public boolean gameLost() // this determines if the game is still going.
 	{
-		if ((ballArray[0][0] != null) || (ballArray[1][0] != null) || (ballArray[2][0] != null)
-				|| (ballArray[3][0] != null) || (ballArray[4][0] != null) || (ballArray[5][0] != null)
-				|| (ballArray[6][0] != null))
+		if ((ballArray[0][0] != null) || (ballArray[0][1] != null) || (ballArray[0][2] != null)
+				|| (ballArray[0][3] != null) || (ballArray[0][4] != null) || (ballArray[0][5] != null)
+				|| (ballArray[0][6] != null))
 		{
 			return true;
 		} else
@@ -114,7 +114,10 @@ public class Compare
 
 	public Color getNextBallCol()
 	{
+		if(nextBall.get
+
 		return nextBall.getColor();
+
 	}
 
 	private void shiftBalls() // shifts all the balls down after they have been popped.
@@ -210,7 +213,6 @@ public class Compare
 					{
 						notNullCounterY -= 1;
 					}
-					// System.out.println(notNullCounterY);
 					for (int z = 0; z < 7; z++)
 					{
 
