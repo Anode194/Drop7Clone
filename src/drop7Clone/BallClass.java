@@ -9,12 +9,12 @@ public class BallClass {
 	private int pointValue;
 	private int ballNum;
 	private Color color;
-							// because we are changing the value of color we have to have a color set for all of them 
+	// because we are changing the value of color we have to have a color set for
+	// all of them
 	private boolean isWhite;
 	private inputOutput io;
-	
-	public BallClass() 
-	{
+
+	public BallClass() {
 
 		try {
 			io = new inputOutput(null);
@@ -25,8 +25,7 @@ public class BallClass {
 
 		Random r = new Random();
 		int ballWhiteNum = r.nextInt(50);
-		if(ballWhiteNum > 42)
-		{
+		if (ballWhiteNum > 42) {
 			isWhite = true;
 		}
 		int randWhiteBallNum = r.nextInt(30);
@@ -76,13 +75,12 @@ public class BallClass {
 			break;
 		}
 	}
-	public BallClass(boolean b ) 
-	{
-		if(b == true)
-		{
+
+	public BallClass(boolean b) {
+		if (b == true) {
 			isWhite = true;
 		}
-		
+
 		try {
 			io = new inputOutput(null);
 		} catch (FileNotFoundException e) {
@@ -130,6 +128,7 @@ public class BallClass {
 			break;
 		}
 	}
+
 	public int getPointValue() {
 		return pointValue;
 	}
@@ -155,22 +154,19 @@ public class BallClass {
 	}
 
 	public Color getColor() {
-		if(isWhite)
-		{
+		if (isWhite) {
 			return Color.WHITE;
-		} else
-		{
+		} else {
 			return color;
 		}
 	}
-	public boolean getWhiteStatus()
-	{
+
+	public boolean getWhiteStatus() {
 		return isWhite;
-				
+
 	}
 
-	public void setWhiteStatus()
-	{
+	public void setWhiteStatus() {
 		isWhite = false;
 	}
 

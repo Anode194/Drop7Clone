@@ -1,5 +1,4 @@
  package drop7Clone;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -18,8 +17,6 @@ import javax.swing.UIManager;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import java.awt.Component;
-
-
 public class BoardGui extends JFrame
 {
 	private JPanel Border;
