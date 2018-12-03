@@ -1,5 +1,4 @@
  package drop7Clone;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -18,9 +17,13 @@ import javax.swing.UIManager;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import java.awt.Component;
+<<<<<<< HEAD
+public class BoardGui extends JFrame
+=======
 
 
 public class boardGui extends JFrame
+>>>>>>> e8ae3c9e42127d2e691537096adce179c0f4624e
 {
 	private JPanel Border;
 	private BallButton[][] btnArray;

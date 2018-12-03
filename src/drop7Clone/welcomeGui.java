@@ -51,7 +51,6 @@ public class welcomeGui extends JFrame {
 			}
 		});
 	}
-
 	public welcomeGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 400);
@@ -323,16 +322,15 @@ public class welcomeGui extends JFrame {
 						trip.setVisible(true);
 
 					} else if (firstName == null) {
-						
+
 						bigTXTField.setText("Make sure you press enter on the name field");
-						
-					} 
+
+					}
 
 				} catch (FileNotFoundException e1) {
 					bigTXTField.setText("Oops that file doesn't exist!");
-					//e1.printStackTrace();
+					// e1.printStackTrace();
 				}
-
 			}
 		});
 	}

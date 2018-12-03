@@ -1,7 +1,6 @@
 package drop7Clone;
 
 import java.awt.Color;
-
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
