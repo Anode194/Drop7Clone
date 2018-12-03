@@ -62,7 +62,8 @@ public class welcomeGui extends JFrame {
 		setContentPane(contentPane);
 
 		JLabel welcomelabel = new JLabel("Welcome to DropClone");
-		welcomelabel.setBackground(new Color(0, 0, 0));
+		welcomelabel.setOpaque(true);
+		welcomelabel.setBackground(Color.DARK_GRAY);
 		welcomelabel.setBorder(new EmptyBorder(13, 13, 13, 13));
 		welcomelabel.setFont(new Font("Monaco", Font.BOLD, 20));
 		welcomelabel.setForeground(Color.WHITE);
@@ -103,7 +104,7 @@ public class welcomeGui extends JFrame {
 
 		fileNameTXT = new JTextField();
 		fileNameTXT.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		fileNameTXT.setBorder(new LineBorder(new Color(0, 0, 0)));
 		fileNameTXT.setFont(new Font("Monaco", Font.BOLD, 20));
 		fileNameTXT.setForeground(new Color(128, 0, 0));
@@ -117,29 +118,9 @@ public class welcomeGui extends JFrame {
 		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 		JButton startBtn = new JButton("Start Game ");
 
-		startBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				welcomeGui.DISPOSE_ON_CLOSE();
-				BoardGui trip = new BoardGui(vio);
-				trip.setVisible(true);
-
-				try {
-
-					if (firstName != null) {
-						vio = new inputOutput(firstName);
-					} else if (fileName != null && firstName != null) {
-
-						vio = new inputOutput(new File(fileName), firstName);
-					} else {
-						bigTXTField.setName(firstName);
-					}
-
-				} catch (FileNotFoundException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
 		JLabel spacer = new JLabel("");
+		spacer.setBackground(Color.DARK_GRAY);
+		spacer.setOpaque(true);
 		panel_1.add(spacer);
 
 		bigTXTField = new JLabel();
@@ -159,12 +140,16 @@ public class welcomeGui extends JFrame {
 		panel_1.add(startBtn);
 
 		JLabel highScore1 = new JLabel("Top High Score: David Mendez:0550123");
+		highScore1.setOpaque(true);
+		highScore1.setBackground(Color.DARK_GRAY);
 		highScore1.setHorizontalAlignment(SwingConstants.CENTER);
 		highScore1.setForeground(new Color(255, 250, 205));
 		highScore1.setFont(new Font("Monaco", Font.BOLD, 10));
 		panel_1.add(highScore1);
 
 		JLabel highScore2 = new JLabel(" Score: Joebida:0434876");
+		highScore2.setBackground(Color.DARK_GRAY);
+		highScore2.setOpaque(true);
 		highScore2.setHorizontalAlignment(SwingConstants.CENTER);
 		highScore2.setForeground(new Color(255, 250, 205));
 		highScore2.setFont(new Font("Monaco", Font.BOLD, 10));
@@ -172,84 +157,186 @@ public class welcomeGui extends JFrame {
 
 		JLabel lblNewLabel_1 = new JLabel("");
 		contentPane.add(lblNewLabel_1, BorderLayout.EAST);
-
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.DARK_GRAY);
-		contentPane.add(panel_2, BorderLayout.WEST);
 		fileNameTXT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Random Gap = new Random();
 				fileName = fileNameTXT.getText();
 				try {
 
 					if (firstName != null) {
 						vio = new inputOutput(firstName);
+						int Trip = Gap.nextInt(4);
+						switch (Trip) {
+						case 0:
+							welcomelabel.setBackground(vio.getColor(6));
+							midsection.setBackground(vio.getColor(6));
+							NameLabel.setBackground(vio.getColor(6));
+							lblFileName.setBackground(vio.getColor(6));
+							spacer.setBackground(vio.getColor(6));
+							firstNameTXT.setBackground(vio.getColor(7));
+							fileNameTXT.setBackground(vio.getColor(7));
+							bigTXTField.setBackground(vio.getColor(7));
+							startBtn.setBackground(Color.white);
+							highScore1.setBackground(vio.getColor(6));
+							highScore2.setBackground(vio.getColor(6));
+							break;
+
+						case 1:
+							welcomelabel.setBackground(vio.getColor(12));
+							midsection.setBackground(vio.getColor(12));
+							NameLabel.setBackground(vio.getColor(12));
+							spacer.setBackground(vio.getColor(12));
+							lblFileName.setBackground(vio.getColor(12));
+							firstNameTXT.setBackground(vio.getColor(11));
+							fileNameTXT.setBackground(vio.getColor(11));
+							bigTXTField.setBackground(vio.getColor(11));
+							startBtn.setBackground(vio.getColor(12));
+							highScore1.setBackground(vio.getColor(12));
+							highScore2.setBackground(vio.getColor(12));
+							NameLabel.setBackground(vio.getColor(12));
+							lblFileName.setBackground(vio.getColor(12));
+							break;
+
+						case 2:
+							welcomelabel.setBackground(vio.getColor(5));
+							midsection.setBackground(vio.getColor(5));
+							NameLabel.setBackground(vio.getColor(5));
+							lblFileName.setBackground(vio.getColor(5));
+							spacer.setBackground(vio.getColor(5));
+							firstNameTXT.setBackground(vio.getColor(2));
+							fileNameTXT.setBackground(vio.getColor(2));
+							bigTXTField.setBackground(vio.getColor(2));
+							startBtn.setBackground(vio.getColor(6));
+							highScore1.setBackground(vio.getColor(5));
+							highScore2.setBackground(vio.getColor(5));
+							NameLabel.setBackground(vio.getColor(5));
+							lblFileName.setBackground(vio.getColor(5));
+							break;
+
+						case 3:
+							welcomelabel.setBackground(vio.getColor(8));
+							midsection.setBackground(vio.getColor(8));
+							NameLabel.setBackground(vio.getColor(8));
+							lblFileName.setBackground(vio.getColor(8));
+							spacer.setBackground(vio.getColor(8));
+							firstNameTXT.setBackground(vio.getColor(7));
+							fileNameTXT.setBackground(vio.getColor(7));
+							bigTXTField.setBackground(vio.getColor(7));
+							startBtn.setBackground(vio.getColor(8));
+							highScore1.setBackground(vio.getColor(8));
+							highScore2.setBackground(vio.getColor(8));
+							NameLabel.setBackground(vio.getColor(8));
+							lblFileName.setBackground(vio.getColor(8));
+							break;
+						}
 					} else if (fileName != null && firstName != null) {
+						int Trip = Gap.nextInt(4);
+						switch (Trip) {
+						case 0:
+							welcomelabel.setBackground(vio.getColor(6));
+							midsection.setBackground(vio.getColor(6));
+							NameLabel.setBackground(vio.getColor(6));
+							lblFileName.setBackground(vio.getColor(6));
+							spacer.setBackground(vio.getColor(6));
+							firstNameTXT.setBackground(vio.getColor(7));
+							fileNameTXT.setBackground(vio.getColor(7));
+							bigTXTField.setBackground(vio.getColor(7));
+							startBtn.setBackground(Color.white);
+							highScore1.setBackground(vio.getColor(6));
+							highScore2.setBackground(vio.getColor(6));
+							break;
+
+						case 1:
+							welcomelabel.setBackground(vio.getColor(13));
+							midsection.setBackground(vio.getColor(13));
+							NameLabel.setBackground(vio.getColor(13));
+							spacer.setBackground(vio.getColor(13));
+							lblFileName.setBackground(vio.getColor(13));
+							firstNameTXT.setBackground(vio.getColor(13));
+							fileNameTXT.setBackground(vio.getColor(13));
+							bigTXTField.setBackground(vio.getColor(13));
+							startBtn.setBackground(vio.getColor(13));
+							highScore1.setBackground(vio.getColor(13));
+							highScore2.setBackground(vio.getColor(13));
+							NameLabel.setBackground(vio.getColor(12));
+							lblFileName.setBackground(vio.getColor(12));
+							break;
+
+						case 2:
+							welcomelabel.setBackground(vio.getColor(17));
+							midsection.setBackground(vio.getColor(17));
+							NameLabel.setBackground(vio.getColor(17));
+							lblFileName.setBackground(vio.getColor(17));
+							spacer.setBackground(vio.getColor(17));
+							firstNameTXT.setBackground(vio.getColor(17));
+							fileNameTXT.setBackground(vio.getColor(17));
+							bigTXTField.setBackground(vio.getColor(17));
+							startBtn.setBackground(vio.getColor(17));
+							highScore1.setBackground(vio.getColor(17));
+							highScore2.setBackground(vio.getColor(17));
+							NameLabel.setBackground(vio.getColor(17));
+							lblFileName.setBackground(vio.getColor(17));
+							break;
+						case 3:
+							welcomelabel.setBackground(vio.getColor(6));
+							midsection.setBackground(vio.getColor(6));
+							NameLabel.setBackground(vio.getColor(6));
+							lblFileName.setBackground(vio.getColor(6));
+							spacer.setBackground(vio.getColor(6));
+							firstNameTXT.setBackground(vio.getColor(7));
+							fileNameTXT.setBackground(vio.getColor(7));
+							bigTXTField.setBackground(vio.getColor(7));
+							startBtn.setBackground(vio.getColor(6));
+							highScore1.setBackground(vio.getColor(6));
+							highScore2.setBackground(vio.getColor(6));
+							NameLabel.setBackground(vio.getColor(6));
+							lblFileName.setBackground(vio.getColor(6));
+							break;
+						}
 
 						vio = new inputOutput(new File(fileName), firstName);
 					} else {
-						bigTXTField.setName(firstName);
+						bigTXTField.setName("Make sure you press enter on the name field");
 					}
 
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
-				}	
-				
-				Random Gap = new Random();
-				int Trip = Gap.nextInt(3);
-				switch (Trip) {
-				case 0:
-					welcomelabel.setBackground(vio.getColor(6));
-					midsection.setBackground(vio.getColor(6));
-					NameLabel.setBackground(vio.getColor(6));
-					lblFileName.setBackground(vio.getColor(6));
-					firstNameTXT.setBackground(vio.getColor(7));
-					fileNameTXT.setBackground(vio.getColor(7));
-					bigTXTField.setBackground(vio.getColor(7));
-					startBtn.setBackground(Color.white);
-					highScore1.setBackground(vio.getColor(6));
-					highScore2.setBackground(vio.getColor(6));
-					break;
-					
-				case 1:
-					welcomelabel.setBackground(vio.getColor(13));
-					midsection.setBackground(vio.getColor(13));
-					NameLabel.setBackground(vio.getColor(13));
-					lblFileName.setBackground(vio.getColor(13));
-					firstNameTXT.setBackground(vio.getColor(13));
-					fileNameTXT.setBackground(vio.getColor(13));
-					bigTXTField.setBackground(vio.getColor(13));
-					startBtn.setBackground(vio.getColor(13));
-					highScore1.setBackground(vio.getColor(13));
-					highScore2.setBackground(vio.getColor(13));
-					NameLabel.setBackground(vio.getColor(12));
-					lblFileName.setBackground(vio.getColor(12));
-					break;
-					
-				case 2:
-					welcomelabel.setBackground(vio.getColor(11));
-					midsection.setBackground(vio.getColor(11));
-					NameLabel.setBackground(vio.getColor(13));
-					lblFileName.setBackground(vio.getColor(11));
-					firstNameTXT.setBackground(vio.getColor(13));
-					fileNameTXT.setBackground(vio.getColor(13));
-					bigTXTField.setBackground(vio.getColor(13));
-					startBtn.setBackground(vio.getColor(11));
-					highScore1.setBackground(vio.getColor(11));
-					highScore2.setBackground(vio.getColor(11));
-					NameLabel.setBackground(vio.getColor(1));
-					lblFileName.setBackground(vio.getColor(1));
-					break;
 				}
-			
-				
-				
-				
-					
+
+			}
+		});
+		startBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				welcomeGui.DISPOSE_ON_CLOSE();
+
+				try {
+
+					if (firstName != null && fileName == null) {
+						vio = new inputOutput(firstName);
+						BoardGui trip = new BoardGui(vio);
+						trip.setVisible(true);
+
+					} else if (fileName != null && firstName != null) {
+
+						vio = new inputOutput(new File(fileName), firstName);
+						BoardGui trip = new BoardGui(vio);
+						trip.setVisible(true);
+
+					} else {
+						bigTXTField.setText("Make sure you press enter on the name field");
+					}
+
+				} catch (FileNotFoundException e1) {
+					System.out.println("Looks like that file doesn't exist!");
+					e1.printStackTrace();
+
+				}
+
 			}
 		});
 	}
 
 	protected static void DISPOSE_ON_CLOSE() {
-		
+
 	}
 }
