@@ -34,7 +34,7 @@ public class Compare
 		}
 		popBalls();
 		nextBall = new BallClass();
-		ballsLeft = 14;
+		ballsLeft = 7;
 		level = 1;
 	}
 
@@ -67,7 +67,7 @@ public class Compare
 			ballsLeft--;
 		} else
 		{
-			ballsLeft = 14;
+			ballsLeft = 7;
 			level++;
 			for (int q = 1; q < 7; q++)
 			{
