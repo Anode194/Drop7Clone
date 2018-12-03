@@ -301,6 +301,7 @@ public class welcomeGui extends JFrame {
 
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
+					bigTXTField.setName("Oops that file doesn't exist!");
 				}
 
 			}
@@ -322,14 +323,15 @@ public class welcomeGui extends JFrame {
 						BoardGui trip = new BoardGui(vio);
 						trip.setVisible(true);
 
-					} else {
+					} else if (firstName == null) {
+						
 						bigTXTField.setText("Make sure you press enter on the name field");
-					}
+						
+					} 
 
 				} catch (FileNotFoundException e1) {
-					System.out.println("Looks like that file doesn't exist!");
-					e1.printStackTrace();
-
+					bigTXTField.setText("Oops that file doesn't exist!");
+					//e1.printStackTrace();
 				}
 
 			}
