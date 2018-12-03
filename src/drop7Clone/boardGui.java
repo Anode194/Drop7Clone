@@ -137,7 +137,7 @@ public class boardGui extends JFrame
 								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 								
 								comp.setNextBallPos(xCoord, yCoord);
-								if(comp.gameLost())
+								if(!comp.gameLost())
 								{
 									for(BallButton[] b : btnArray)
 									{
@@ -145,9 +145,10 @@ public class boardGui extends JFrame
 										{
 											bb.setBackground(Color.red);
 											bb.setText("you lose!!!!!");
+											
 											try
 											{
-												Thread.sleep(1000);
+												Thread.sleep(9000);
 											} catch (InterruptedException e1)
 											{
 												// TODO Auto-generated catch block

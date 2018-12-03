@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import canvas.Home;
-import canvas.Java1400;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -81,7 +79,6 @@ public class YouLose extends JFrame {
 		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 	}
 	protected static void EXIT_ON_CLOSE() {
-		// TODO Auto-generated method stub
 		
 	}
 
