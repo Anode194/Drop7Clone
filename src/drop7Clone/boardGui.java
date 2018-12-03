@@ -17,7 +17,13 @@ import javax.swing.UIManager;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import java.awt.Component;
+<<<<<<< HEAD
 public class BoardGui extends JFrame
+=======
+
+
+public class boardGui extends JFrame
+>>>>>>> e8ae3c9e42127d2e691537096adce179c0f4624e
 {
 	private JPanel Border;
 	private BallButton[][] btnArray;
@@ -43,7 +49,7 @@ public class BoardGui extends JFrame
 			});
 	}
 
-	public BoardGui(inputOutput vio)
+	public boardGui(inputOutput vio)
 	{
 		
 		Compare comp = new Compare();
@@ -134,6 +140,29 @@ public class BoardGui extends JFrame
 								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 								
 								comp.setNextBallPos(xCoord, yCoord);
+								if(!comp.gameLost())
+								{
+									for(BallButton[] b : btnArray)
+									{
+										for(BallButton bb : b)
+										{
+											bb.setBackground(Color.red);
+											bb.setText("you lose!!!!!");
+											
+											try
+											{
+												Thread.sleep(9000);
+											} catch (InterruptedException e1)
+											{
+												// TODO Auto-generated catch block
+												e1.printStackTrace();
+											}
+											YouLose yl = new YouLose(vio);
+											yl.setVisible(true);
+											System.exit(0);
+										}
+									}
+								}
 								
 								redrawScreen(comp);
 								comp.popBalls();
