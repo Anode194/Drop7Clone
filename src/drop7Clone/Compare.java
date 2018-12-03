@@ -32,7 +32,7 @@ public class Compare
 			ballArray[4][y] = new BallClass();
 
 		}
-		 popBalls();
+		popBalls();
 		nextBall = new BallClass();
 		ballsLeft = 14;
 		level = 1;
@@ -94,24 +94,27 @@ public class Compare
 
 	public int getBallnum(int x, int y) // returns the number of the ball at the position
 	{
-		if(ballArray[x][y].getWhiteStatus()== false)
+		if (ballArray[x][y].getWhiteStatus() == false && ballArray[x][y].getCrackedStatus() == false)
 		{
-		return ballArray[x][y].getBallNum();
-		} else
-			return 9999;
+			return ballArray[x][y].getBallNum();
+		} else return 9898;
 	}
 
 	public int getNextBallNum()
 	{
-		if(nextBall.getWhiteStatus() == false) 
+		if (nextBall.getWhiteStatus() == false)
 		{
-		return nextBall.getBallNum(); // for showing the next ball num on the gui
+			return nextBall.getBallNum(); // for showing the next ball num on the gui
 
-		} else 
+		} else
 		{
 			return 9999;
 		}
 
+	}
+	public boolean getCrackedStatus(int x, int y)
+	{
+		 return ballArray[x][y].getCrackedStatus();
 	}
 
 	public Color getNextBallCol()
@@ -143,68 +146,115 @@ public class Compare
 		{
 			for (int y = 0; y < 7; y++)
 			{
-				if(ballArray[x][y] != null)
+				if (ballArray[x][y] != null)
 				{
-				int notNullCounterX = 0;
-				int notNullCounterY = 0;
+					int notNullCounterX = 0;
+					int notNullCounterY = 0;
 
-				int compare = ballArray[x][y].getBallNum();
+					int compare = ballArray[x][y].getBallNum();
 
-				for (int q = 0; q < ballArray[x].length; q++)
-				{
-					if (ballArray[q][y] != null) notNullCounterX++;
-				}
-				for (int z = 0; z < 7; z++)
-				{
-					if (ballArray[z][y] != null)
+					for (int q = 0; q < ballArray[x].length; q++)
 					{
-						if (ballArray[z][y].getBallNum() == notNullCounterX)
+						if (ballArray[q][y] != null) notNullCounterX++;
+					}
+					for (int z = 0; z < 7; z++)
+					{
+						if (ballArray[z][y] != null)
 						{
-							setScore(ballArray[z][y].getPointValue());
-							if(ballArray[z][y+1].getWhiteStatus() == true)
+							if (ballArray[z][y].getBallNum() == notNullCounterX)
 							{
-								ballArray[z][y].setWhiteStatus();
-							} else if(ballArray[z][y+1].getCrackedStatus() == true)
-							{
-								ballArray[z][y].setCrackedStatus();
+								if (y != 6 )
+								{
+									 if(ballArray[z][y + 1] != null)
+									 {
+								
+									if (ballArray[z][y + 1].getWhiteStatus())
+									{
+										ballArray[z][y].setWhiteStatus();
+									} else if (ballArray[z][y + 1].getCrackedStatus())
+									{
+										ballArray[z][y].setCrackedStatus();
+									}
+									 }
+								}
+									if (y != 0) { 
+										if(ballArray[z][y - 1] != null) {
+									
+										if (ballArray[z][y - 1].getWhiteStatus())
+										{
+											ballArray[z][y - 1].setWhiteStatus();
+										} else if (ballArray[z][y - 1].getCrackedStatus())
+										{
+											ballArray[z][y - 1].setCrackedStatus();
+										}
+									}}
+									
+								
+								
+									if(ballArray[z][y].getWhiteStatus() == false && ballArray[z][y].getCrackedStatus() == false)
+									{
+								setScore(ballArray[z][y].getPointValue());
+								ballArray[z][y] = null;
+									}
 							}
-
-							ballArray[z][y] = null;
 						}
 					}
-				}
-				notNullCounterY = 0;
-				int checkRight = y;
-				int checkLeft = y;
-				while (ballArray[x][checkRight] != null)
-				{
-					notNullCounterY++;
-					if (checkRight == 6) break;
-					checkRight++;
-				}
-				while (ballArray[x][checkLeft] != null)
-				{
-					notNullCounterY++;
-					if (checkLeft == 0) break;
-					checkLeft--;
-				}
-				if (notNullCounterY != 1 || notNullCounterY != 7 || notNullCounterY != 0)
-				{
-					notNullCounterY -= 1;
-				}
-				// System.out.println(notNullCounterY);
-				for (int z = 0; z < 7; z++)
-				{
-					if (ballArray[x][z] != null)
+					notNullCounterY = 0;
+					int checkRight = y;
+					int checkLeft = y;
+					while (ballArray[x][checkRight] != null)
 					{
-						if (ballArray[x][z].getBallNum() == notNullCounterY)
-						{
-							setScore(ballArray[x][z].getPointValue());
-							ballArray[x][z] = null;
-						}
+						notNullCounterY++;
+						if (checkRight == 6) break;
+						checkRight++;
 					}
-				}
-				shiftBalls();
+					while (ballArray[x][checkLeft] != null)
+					{
+						notNullCounterY++;
+						if (checkLeft == 0) break;
+						checkLeft--;
+					}
+					if (notNullCounterY != 1 || notNullCounterY != 7 || notNullCounterY != 0)
+					{
+						notNullCounterY -= 1;
+					}
+					// System.out.println(notNullCounterY);
+					for (int z = 0; z < 7; z++)
+					{
+
+							if (ballArray[x][z] != null)
+							{
+								if (ballArray[x][z].getBallNum() == notNullCounterY)
+								{
+									if(x!=0 && ballArray[x - 1][z] != null)
+									{
+									if (ballArray[x - 1][z].getWhiteStatus())
+									{
+										ballArray[x - 1][z].setWhiteStatus();
+									} else if (ballArray[x - 1][z].getCrackedStatus())
+									{
+										ballArray[x - 1][z].setCrackedStatus();
+									}
+									}
+									if(x!=6 && ballArray[x - 1][z] != null)
+									{
+										if (ballArray[x+1][z].getWhiteStatus())
+										{
+											ballArray[x+1][z].setWhiteStatus();
+										} else if(ballArray[x+1][z].getCrackedStatus())
+										{
+											ballArray[x+1][z].setCrackedStatus();
+										}
+									}
+									if(ballArray[x][z].getWhiteStatus() == false && ballArray[x][z].getCrackedStatus() == false)
+									{
+									setScore(ballArray[x][z].getPointValue());
+									ballArray[x][z] = null;
+									}
+								}
+							}
+					}
+					shiftBalls();
 				}
 			}
 		}

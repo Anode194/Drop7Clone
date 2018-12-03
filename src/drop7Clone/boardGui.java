@@ -170,6 +170,10 @@ public class BoardGui extends JFrame
 				{
 					btnArray[q][z].setText(""+comp.getBallnum(q, z));
 					btnArray[q][z].setBackground(comp.getBallColor(q, z));
+					if(comp.getCrackedStatus(q, z))
+					{
+						btnArray[q][z].setForeground(comp.getBallColor(q, z));
+					}
 				}
 				
 			}
