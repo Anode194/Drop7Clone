@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 import java.awt.Component;
 
 
-public class BoardGui extends JFrame
+public class boardGui extends JFrame
 {
 	private JPanel Border;
 	private BallButton[][] btnArray;
@@ -46,7 +46,7 @@ public class BoardGui extends JFrame
 			});
 	}
 
-	public BoardGui(inputOutput vio)
+	public boardGui(inputOutput vio)
 	{
 		
 		Compare comp = new Compare();
@@ -137,6 +137,28 @@ public class BoardGui extends JFrame
 								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 								
 								comp.setNextBallPos(xCoord, yCoord);
+								if(comp.gameLost())
+								{
+									for(BallButton[] b : btnArray)
+									{
+										for(BallButton bb : b)
+										{
+											bb.setBackground(Color.red);
+											bb.setText("you lose!!!!!");
+											try
+											{
+												Thread.sleep(1000);
+											} catch (InterruptedException e1)
+											{
+												// TODO Auto-generated catch block
+												e1.printStackTrace();
+											}
+											YouLose yl = new YouLose(vio);
+											yl.setVisible(true);
+											System.exit(0);
+										}
+									}
+								}
 								
 								redrawScreen(comp);
 								comp.popBalls();

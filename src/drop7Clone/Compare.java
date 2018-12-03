@@ -269,42 +269,7 @@ public class Compare
 		return level;
 	}
 
-	public void debug() // delete before turning in
-	{
-		for (int x = 0; x < 7; x++)
-		{
-			for (int y = 0; y < 7; y++)
-			{
-				if (ballArray[x][y] == null)
-				{
-					System.out.print("00");
-					// System.out.print(" "+x + " "+ y);
-				} else
-				{
-					// System.out.print("1 ");
-					System.out.print("" + x + "" + y);
-					// System.out.print(ballArray[x][y].getBallNum()+" ");
-				}
 
-			}
-			System.out.println(" ");
-		}
-		for (int x = 0; x < 7; x++)
-		{
-			for (int y = 0; y < 7; y++)
-			{
-				if (ballArray[x][y] == null)
-				{
-					System.out.print("0 ");
-				} else
-				{
-					System.out.print(ballArray[x][y].getBallNum() + " ");
-				}
-
-			}
-			System.out.println(" ");
-		}
-	}
 
 	private void setScore(int points)
 	{
