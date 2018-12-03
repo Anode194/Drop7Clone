@@ -67,32 +67,32 @@ public class BoardGui extends JFrame
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBackground(vio.getColor(15));
-		panel_1.setForeground(vio.getColor(14));
+		panel_1.setForeground(vio.getColor(12));
 		Border.add(panel_1, BorderLayout.NORTH);
 
 		JLabel Scorelabel = new JLabel(String.format("%8d", comp.getScore()));
 		Scorelabel.setOpaque(true);
 		Scorelabel.setBackground(vio.getColor(15));
-		Scorelabel.setForeground(vio.getColor(14));
+		Scorelabel.setForeground(vio.getColor(12));
 		Scorelabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(Scorelabel);
 
 		JLabel levelLabel = new JLabel("Level: "+comp.getLevel());
 		levelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		levelLabel.setForeground(vio.getColor(14));
+		levelLabel.setForeground(vio.getColor(12));
 		levelLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		levelLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(levelLabel);
 
 		JLabel ballsLabel = new JLabel("Balls left: "+comp.getBallsLeft());
-		ballsLabel.setForeground(vio.getColor(14));
+		ballsLabel.setForeground(vio.getColor(12));
 		ballsLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		ballsLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(ballsLabel);
 
 
 		JLabel nextNumLbl = new JLabel(String.format("Next Ball: %d",comp.getNextBallNum()));
-		nextNumLbl.setForeground(vio.getColor(14));
+		nextNumLbl.setForeground(vio.getColor(12));
 		nextNumLbl.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		nextNumLbl.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(nextNumLbl);
