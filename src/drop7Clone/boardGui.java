@@ -46,14 +46,14 @@ public class BoardGui extends JFrame
 			});
 	}
 
-	public BoardGui(inputOutput io)
+	public BoardGui(inputOutput vio)
 	{
 		
 		Compare comp = new Compare();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 950);
 		Border = new JPanel();
-		Border.setBackground(new Color(128, 0, 0));
+		Border.setBackground(vio.getColor(15));
 		Border.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Border.setLayout(new BorderLayout(0, 0));
 		setContentPane(Border);
@@ -66,20 +66,20 @@ public class BoardGui extends JFrame
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_1.setBackground(new Color(250, 235, 215));
-		panel_1.setForeground(new Color(128, 0, 0));
+		panel_1.setBackground(vio.getColor(15));
+		panel_1.setForeground(vio.getColor(14));
 		Border.add(panel_1, BorderLayout.NORTH);
 
 		JLabel Scorelabel = new JLabel(String.format("%8d", comp.getScore()));
 		Scorelabel.setOpaque(true);
-		Scorelabel.setBackground(new Color(250, 235, 215));
-		Scorelabel.setForeground(new Color(128, 0, 0));
+		Scorelabel.setBackground(vio.getColor(15));
+		Scorelabel.setForeground(vio.getColor(14));
 		Scorelabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		panel_1.add(Scorelabel);
 
 		JLabel levelLabel = new JLabel("Level: "+comp.getLevel());
 		levelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		levelLabel.setForeground(new Color(0, 0, 139));
+		levelLabel.setForeground(vio.getColor(14));
 		levelLabel.setFont(new Font("Monaco", Font.BOLD, 18));
 		levelLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_1.add(levelLabel);
