@@ -94,10 +94,10 @@ public class Compare
 
 	public int getBallnum(int x, int y) // returns the number of the ball at the position
 	{
-		if (ballArray[x][y].getWhiteStatus() == false && ballArray[x][y].getCrackedStatus() == false)
+		if (ballArray[x][y].getWhiteStatus() == false)
 		{
 			return ballArray[x][y].getBallNum();
-		} else return 9898;
+		} else return 8;
 	}
 
 	public int getNextBallNum()
@@ -111,10 +111,6 @@ public class Compare
 			return 9999;
 		}
 
-	}
-	public boolean getCrackedStatus(int x, int y)
-	{
-		 return ballArray[x][y].getCrackedStatus();
 	}
 
 	public Color getNextBallCol()
@@ -163,41 +159,38 @@ public class Compare
 						{
 							if (ballArray[z][y].getBallNum() == notNullCounterX)
 							{
-								if (y != 6 )
+								if (z != 6 )
 								{
-									 if(ballArray[z][y + 1] != null)
+									 if(ballArray[z+1][y] != null)
 									 {
 								
-									if (ballArray[z][y + 1].getWhiteStatus())
+									if (ballArray[z+1][y].getWhiteStatus())
 									{
-										ballArray[z][y].setWhiteStatus();
-									} else if (ballArray[z][y + 1].getCrackedStatus())
-									{
-										ballArray[z][y].setCrackedStatus();
-									}
-									 }
+										ballArray[z+1][y].setWhiteStatus();
+									} 
 								}
-									if (y != 0) { 
-										if(ballArray[z][y - 1] != null) {
+									if (z != 0) 
+									{ 
+										if(ballArray[z-1][y] != null) 
+										{
 									
-										if (ballArray[z][y - 1].getWhiteStatus())
-										{
-											ballArray[z][y - 1].setWhiteStatus();
-										} else if (ballArray[z][y - 1].getCrackedStatus())
-										{
-											ballArray[z][y - 1].setCrackedStatus();
+											if (ballArray[z-1][y].getWhiteStatus())
+											{
+												ballArray[z-1][y].setWhiteStatus();
+											} 
 										}
-									}}
+									}
 									
 								
 								
-									if(ballArray[z][y].getWhiteStatus() == false && ballArray[z][y].getCrackedStatus() == false)
+									if(ballArray[z][y].getWhiteStatus() == false)
 									{
-								setScore(ballArray[z][y].getPointValue());
-								ballArray[z][y] = null;
+										setScore(ballArray[z][y].getPointValue());
+										ballArray[z][y] = null;
 									}
 							}
 						}
+					}
 					}
 					notNullCounterY = 0;
 					int checkRight = y;
@@ -226,27 +219,26 @@ public class Compare
 							{
 								if (ballArray[x][z].getBallNum() == notNullCounterY)
 								{
-									if(x!=0 && ballArray[x - 1][z] != null)
+									if(z!=0)
 									{
-									if (ballArray[x - 1][z].getWhiteStatus())
-									{
-										ballArray[x - 1][z].setWhiteStatus();
-									} else if (ballArray[x - 1][z].getCrackedStatus())
-									{
-										ballArray[x - 1][z].setCrackedStatus();
-									}
-									}
-									if(x!=6 && ballArray[x - 1][z] != null)
-									{
-										if (ballArray[x+1][z].getWhiteStatus())
+										if(ballArray[x][z-1] != null)
 										{
-											ballArray[x+1][z].setWhiteStatus();
-										} else if(ballArray[x+1][z].getCrackedStatus())
-										{
-											ballArray[x+1][z].setCrackedStatus();
-										}
+									if (ballArray[x][z-1].getWhiteStatus())
+									{
+										ballArray[x][z-1].setWhiteStatus();
+									} 
 									}
-									if(ballArray[x][z].getWhiteStatus() == false && ballArray[x][z].getCrackedStatus() == false)
+									}
+									if(z!=6)
+									{
+										if(ballArray[x][z+1] != null)
+										{
+										if (ballArray[x][z+1].getWhiteStatus())
+										{
+											ballArray[x][z+1].setWhiteStatus();
+									}
+									}
+									if(ballArray[x][z].getWhiteStatus() == false && ballArray[x][z] != null)
 									{
 									setScore(ballArray[x][z].getPointValue());
 									ballArray[x][z] = null;
@@ -257,7 +249,7 @@ public class Compare
 					shiftBalls();
 				}
 			}
-		}
+			}}
 	}
 
 	public Boolean checkBalls(int x, int y) // checks the ballArray so we can redraw the buttons.
