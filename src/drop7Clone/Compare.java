@@ -114,8 +114,6 @@ public class Compare
 
 	public Color getNextBallCol()
 	{
-		if(nextBall.get
-
 		return nextBall.getColor();
 
 	}

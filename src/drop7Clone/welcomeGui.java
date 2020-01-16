@@ -313,12 +313,12 @@ public class welcomeGui extends JFrame {
 
 					if (firstName != null && fileName == null) {
 						vio = new inputOutput(firstName);
-						boardGui trip = new boardGui(vio);
+						BoardGui trip = new BoardGui(vio);
 						trip.setVisible(true);
 					} else if (fileName != null && firstName != null) {
 
 						vio = new inputOutput(new File(fileName), firstName);
-						boardGui trip = new boardGui(vio);
+						BoardGui trip = new BoardGui(vio);
 						trip.setVisible(true);
 
 					} else if (firstName == null) {

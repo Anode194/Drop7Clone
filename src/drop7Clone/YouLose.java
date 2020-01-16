@@ -1,17 +1,9 @@
 package drop7Clone;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> e8ae3c9e42127d2e691537096adce179c0f4624e
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -96,12 +88,6 @@ public class YouLose extends JFrame {
 	}
 
 	protected static void EXIT_ON_CLOSE() {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-
-=======
-		
->>>>>>> e8ae3c9e42127d2e691537096adce179c0f4624e
 	}
-
 }

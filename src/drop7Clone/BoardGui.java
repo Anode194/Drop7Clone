@@ -132,9 +132,9 @@ public class BoardGui extends JFrame
 								btnArray[xCoord][yCoord].setText(""+comp.getNextBallNum());
 								btnArray[xCoord][yCoord].setBackground(comp.getNextBallCol());
 								comp.setNextBallPos(xCoord, yCoord);
-								if(comp.isLost)
+								if(comp.gameLost())
 								{
-									YouLose yl = new YouLose(vio);
+									YouLose yl = new YouLose(io);
 									yl.setVisible(true);
 								}
 								
